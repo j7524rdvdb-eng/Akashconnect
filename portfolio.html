@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akash Thattanparambil Raju | Case Manager & Service Coordinator</title>
+  <meta name="description" content="Professional portfolio of Akash Thattanparambil Raju — Case Manager with experience in social services, health & wellbeing, and supply chain systems thinking. Based in Christchurch, New Zealand.">
+  <style>
+    :root {
+      --primary: #1a365d;
+      --accent: #2b6cb0;
+      --light: #f7fafc;
+      --text: #2d3748;
+      --muted: #718096;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header / Hero */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+      color: white;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    header .subtitle {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-bottom: 1.2rem;
+    }
+    header .location {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+    .cta-row {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      text-decoration: none;
+    }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.7);
+      color: white;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+
+    /* Navigation */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--text);
+      font-weight: 500;
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      background: var(--light);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Cards / Experience */
+    .job {
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .job:last-child { border-bottom: none; }
+    ul.bullets {
+      margin-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    ul.bullets li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Education grid */
+    .edu-item {
+      margin-bottom: 1.2rem;
+    }
+    .edu-item strong {
+      display: block;
+      color: var(--text);
+    }
+
+    /* Skills tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .tag {
+      background: var(--light);
+      color: var(--primary);
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+    }
+
+    /* Credentials list */
+    .cred-list {
+      columns: 1;
+    }
+    @media (min-width: 600px) {
+      .cred-list { columns: 2; }
+    }
+    .cred-list li {
+      margin-bottom: 0.4rem;
+      break-inside: avoid;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    footer a { color: white; }
+
+    /* Print friendly */
+    @media print {
+      header { padding: 1.5rem; }
+      nav { display: none; }
+      .cta-row { display: none; }
+      body { font-size: 11pt; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Akash Thattanparambil Raju</h1>
+    <p class="subtitle">Case Manager · Service Coordinator · Health & Wellbeing Professional</p>
+    <p class="location">Christchurch, New Zealand · Full NZ Driver Licence · Available for management roles</p>
+    <div class="cta-row">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#education" class="btn btn-outline">Qualifications</a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Results-oriented Case Manager with over six years of experience across social services, healthcare, aged care and hospitality. 
+        I specialise in complex case-file management, multi-agency stakeholder coordination, regulatory compliance and culturally responsive 
+        practice grounded in Te Tiriti o Waitangi. My Graduate Diploma in Supply Chain Logistics (Level 7) adds strong systems-thinking 
+        and operational discipline to client-centred service delivery.
+      </p>
+      <p style="margin-top: 0.8rem;">
+        Currently working as a General Case Manager at the Ministry of Social Development (Kaikōura) while based in the Christchurch region. 
+        I am seeking management and coordination roles that leverage my strengths in casework supervision, compliance, stakeholder management 
+        and people leadership.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <h3>General Case Manager</h3>
+        <p class="meta">Ministry of Social Development – Kaikōura · November 2025 – Present</p>
+        <ul class="bullets">
+          <li>Manage complex case files and coordinate services across multiple agencies and stakeholders to support client outcomes.</li>
+          <li>Prepare accurate, defensible documentation ensuring regulatory compliance and procedural integrity.</li>
+          <li>Apply Te Tiriti-grounded practice and culturally responsive approaches in all client interactions and planning.</li>
+          <li>Prioritise workload and meet deadlines in a high-volume, high-stakes environment.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Support Worker</h3>
+        <p class="meta">Te Whare Ngakau Trust & IDEA Services · Prior roles (contributing to 6+ years sector experience)</p>
+        <ul class="bullets">
+          <li>Delivered person-centred support enabling clients to maintain and maximise independence.</li>
+          <li>Supported medication administration, personal care, safe swallowing strategies and pressure-area care in line with individual plans.</li>
+          <li>Observed, described and responded to changes in client wellbeing; escalated concerns appropriately.</li>
+          <li>Applied infection-control, health &amp; safety and professional/ethical standards consistently.</li>
+          <li>Supported people with dementia and those whose behaviour presents challenges using person-centred approaches.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Caregiver &amp; Coordinator</h3>
+        <p class="meta">Chatswood Retirement Village · Aged-care setting</p>
+        <ul class="bullets">
+          <li>Coordinated daily care routines and supported residents with personal care, mobility and wellbeing needs.</li>
+          <li>Communicated effectively with residents, families and the multidisciplinary team; maintained accurate records.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Front Office &amp; Kitchen Roles</h3>
+        <p class="meta">Distinction Hotel · Hospitality operations</p>
+        <ul class="bullets">
+          <li>Delivered high-standard guest service, managed front-of-house processes and supported kitchen operations under time pressure, developing strong organisational and customer-service skills transferable to service coordination roles.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education &amp; Qualifications</h2>
+
+      <div class="edu-item">
+        <strong>Graduate Diploma in Supply Chain Logistics (Level 7)</strong>
+        <span class="meta">Te Pūkenga trading as Ara Institute of Canterbury · 20 December 2020</span>
+      </div>
+
+      <div class="edu-item">
+        <strong>New Zealand Certificate in Health and Wellbeing (Advanced Care and Support) (Level 4)</strong>
+        <span class="meta">New Zealand Tertiary College Limited · 24 May 2024</span>
+      </div>
+
+      <div class="edu-item">
+        <strong>New Zealand Certificate in Health and Wellbeing (Level 3), Healthcare Assistance</strong>
+        <span class="meta">New Zealand Institute of Skills and Technology · 15 March 2023</span>
+      </div>
+
+      <div class="edu-item">
+        <strong>Bachelor of Commerce</strong>
+        <span class="meta">Completed</span>
+      </div>
+
+      <div class="edu-item">
+        <strong>Certificate in Māori Protocol and Language</strong>
+        <span class="meta">In progress</span>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <h2>Professional Development &amp; Credentials</h2>
+      <ul class="cred-list" style="list-style: none; margin-left: 0;">
+        <li>✓ Provide first aid (US 6401) &amp; Basic life support (US 6402) — Mar 2024</li>
+        <li>✓ Health &amp; Safety Representative (US 29315) — Aug 2026</li>
+        <li>✓ Medication support in health/wellbeing settings</li>
+        <li>✓ Personal care needs support</li>
+        <li>✓ Ageing process &amp; lifestyle effects</li>
+        <li>✓ Support for challenging behaviour</li>
+        <li>✓ Independence facilitation &amp; mentoring</li>
+        <li>✓ Dementia interaction, supports &amp; reporting</li>
+        <li>✓ Safe moving &amp; equipment care</li>
+        <li>✓ Observation &amp; response to changes</li>
+        <li>✓ Safe swallowing strategies</li>
+        <li>✓ Vulnerability &amp; abuse responses</li>
+        <li>✓ Infection control procedures</li>
+        <li>✓ Health, safety &amp; security practices</li>
+        <li>✓ Professional &amp; ethical behaviour</li>
+        <li>✓ Cultural preference support</li>
+        <li>✓ Communication for health &amp; wellbeing</li>
+        <li>✓ Pressure injury prevention &amp; care</li>
+        <li>✓ Palliative care principles &amp; support worker role</li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--muted);">
+        Full NZQA Record of Achievement (NSN: 158635038) verifiable at 
+        <a href="https://www.nzqa.govt.nz/verify-roa" target="_blank" rel="noopener">www.nzqa.govt.nz/verify-roa</a>
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Core Competencies</h2>
+      <div class="tags">
+        <span class="tag">Case File Management</span>
+        <span class="tag">Multi-agency Coordination</span>
+        <span class="tag">Regulatory Compliance</span>
+        <span class="tag">Te Tiriti Practice</span>
+        <span class="tag">Culturally Responsive Care</span>
+        <span class="tag">Client-centred Planning</span>
+        <span class="tag">Risk Management</span>
+        <span class="tag">Infection Control</span>
+        <span class="tag">Medication Support</span>
+        <span class="tag">Dementia Support</span>
+        <span class="tag">Palliative Approaches</span>
+        <span class="tag">Health &amp; Safety</span>
+        <span class="tag">Stakeholder Communication</span>
+        <span class="tag">Deadline Management</span>
+        <span class="tag">Systems Thinking</span>
+        <span class="tag">Documentation Integrity</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Akash Thattanparambil Raju · Christchurch, New Zealand</p>
+    <p style="margin-top: 0.4rem;">Portfolio generated September 2026 · NZQA ROA available on request</p>
+  </footer>
+</body>
+</html>
