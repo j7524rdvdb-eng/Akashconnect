@@ -1,6 +1,6 @@
 # From Kerala to Canterbury
 
-Personal portfolio for **Akash Thattanparambil Raju** — Case Manager at the Ministry of Social Development (Kaikōura, NZ), and Health and Safety Representative for the Kaikōura Work and Income office.
+Personal site for **Akash Thattanparambil Raju** — Case Manager at the Ministry of Social Development (NZ), and Health and Safety Representative for the Work and Income office. Written in plain language.
 
 **Theme:** dusk portfolio aesthetic inspired by gamified 3D scooter reels — deep navy base, coral/mauve/blue washes, DM Sans + Outfit, glass chapter panels, oversized CONTACT wordmark; CSS-only (no 3D/WebGL). No contact form, no photos.
 
@@ -10,7 +10,7 @@ Personal portfolio for **Akash Thattanparambil Raju** — Case Manager at the Mi
 
 | Page | File | Content |
 |------|------|---------|
-| **Home** | `index.html` | Hero, short intro, “Today in Kaikōura” snapshot, links to Journey and Contact |
+| **Home** | `index.html` | Hero, short intro, “Today” section, links to Journey and Contact |
 | **Journey** | `journey.html` | Five typographic chapters / career timeline |
 | **Contact** | `contact.html` | Contact page (details on request; no form) |
 
