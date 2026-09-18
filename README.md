@@ -12,7 +12,7 @@ Personal portfolio for **Akash Thattanparambil Raju** — Case Manager at the Mi
 |------|------|---------|
 | **Home** | `index.html` | Hero, short intro, “Today in Kaikōura” snapshot, links to Journey and Contact |
 | **Journey** | `journey.html` | Five typographic chapters / career timeline |
-| **Contact** | `contact.html` | Email and phone only (no form) |
+| **Contact** | `contact.html` | Contact page (details on request; no form) |
 
 Nav on every page: **Home · Journey · Contact** (active page marked).
 
@@ -38,7 +38,7 @@ No build step — plain HTML/CSS/JS with relative links (GitHub Pages friendly).
 - Full-bleed navy/black with coral–mauve–blue dusk washes (reel-inspired, no 3D)
 - Slim sticky top nav with active-page highlight
 - Typographic five-chapter timeline on Journey; scroll fade-ins
-- Email and phone only — no form, no photos
+- Contact page without public email/phone — no form, no photos
 - Security meta + CSP on each HTML page (Google Fonts + unsafe-inline as needed)
 - NZ English throughout
 
