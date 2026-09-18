@@ -502,3 +502,51 @@ a:focus-visible,
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.72);
 }
+
+/* Education & certifications */
+.cred-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 720px) {
+  .cred-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+}
+.cred-card {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--glass-border, rgba(201, 160, 176, 0.18));
+  border-radius: 1rem;
+  background: var(--glass, rgba(18, 16, 26, 0.55));
+}
+.cred-card h3 {
+  font-family: var(--display, Outfit, system-ui, sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cream, #f0e8e0);
+  margin: 0 0 0.35rem;
+}
+.cred-meta {
+  font-size: 0.85rem;
+  color: var(--mauve, #c9a0b0);
+  margin: 0 0 0.65rem;
+}
+.cred-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--soft, #d4c4cc);
+  line-height: 1.55;
+}
+.cred-list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.cred-list li {
+  padding: 0.85rem 1.1rem;
+  border-left: 2px solid var(--coral, #e8897a);
+  background: rgba(232, 137, 122, 0.06);
+  color: var(--soft, #d4c4cc);
+  font-size: 0.98rem;
+}
