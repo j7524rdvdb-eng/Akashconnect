@@ -2,7 +2,7 @@
 
 Personal portfolio for **Akash Thattanparambil Raju** — Case Manager at the Ministry of Social Development (Kaikōura, NZ), and Health and Safety Representative for the Kaikōura Work and Income office.
 
-**Theme:** dark, modern single-page journey narrative with a floating dock nav and “Let’s work together” contact.
+**Theme:** simple cinematic single-page — dark atmosphere, large typography, slim top nav, typographic journey timeline. No contact form, no floating dock, no image assets.
 
 **Live domain:** [www.akashconnect.com](https://www.akashconnect.com)
 
@@ -18,16 +18,16 @@ No build step — self-contained `index.html` with embedded CSS/JS.
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Dark modern portfolio (floating dock, journey cards, mailto contact form) |
+| `index.html` | Cinematic portfolio (hero, journey timeline, today, contact) |
 | `CNAME` | Custom domain for GitHub Pages |
 | `README.md` | This file |
 
 ## Design notes
 
-- Near-black background with soft blue/violet glow accents
-- Fixed macOS-style floating dock (Home, Journey, Experience, Today, Contact)
-- Reveal animations, smooth scroll, accessible focus states
-- Contact form uses `mailto:` (no backend)
+- Full-bleed near-black with restrained blue/amber accents
+- Slim sticky top nav (Journey, Today, Contact)
+- Typographic five-chapter timeline; scroll fade-ins
+- Email and phone only — no form, no photos
 
 ## DNS (for www.akashconnect.com)
 
