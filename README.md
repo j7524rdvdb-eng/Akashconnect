@@ -2,7 +2,7 @@
 
 Personal portfolio for **Akash Thattanparambil Raju** — Case Manager at the Ministry of Social Development (Kaikōura, NZ), and Health and Safety Representative for the Kaikōura Work and Income office.
 
-**Theme:** simple cinematic three-page site — dark atmosphere, large typography (Cormorant + Inter), slim sticky nav, generous whitespace, scroll reveals. No contact form, no photos.
+**Theme:** dusk portfolio aesthetic inspired by gamified 3D scooter reels — deep navy base, coral/mauve/blue washes, DM Sans + Outfit, glass chapter panels, oversized CONTACT wordmark; CSS-only (no 3D/WebGL). No contact form, no photos.
 
 **Live domain:** [www.akashconnect.com](https://www.akashconnect.com)
 
@@ -35,7 +35,7 @@ No build step — plain HTML/CSS/JS with relative links (GitHub Pages friendly).
 
 ## Design notes
 
-- Full-bleed near-black with restrained blue/amber accents
+- Full-bleed navy/black with coral–mauve–blue dusk washes (reel-inspired, no 3D)
 - Slim sticky top nav with active-page highlight
 - Typographic five-chapter timeline on Journey; scroll fade-ins
 - Email and phone only — no form, no photos
