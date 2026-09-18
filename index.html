@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akash Thattanparambil Raju — Case Manager at Ministry of Social Development, Kaikōura. Experienced in case coordination, regulatory compliance, and Te Tiriti-grounded practice across New Zealand social services.">
+  <meta name="author" content="Akash Thattanparambil Raju">
+  <meta name="theme-color" content="#0d4f4f">
+  <title>Akash Thattanparambil Raju | Case Manager — MSD Kaikōura</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal-deep: #0d4f4f;
+      --teal: #1a6b6b;
+      --teal-mid: #2a8a8a;
+      --teal-light: #3aa8a8;
+      --slate: #1e293b;
+      --slate-mid: #334155;
+      --slate-soft: #64748b;
+      --cream: #faf7f2;
+      --cream-warm: #f5f0e8;
+      --cream-dark: #e8e0d4;
+      --white: #ffffff;
+      --text: #1e293b;
+      --text-muted: #475569;
+      --accent: #0d4f4f;
+      --radius: 8px;
+      --shadow: 0 1px 3px rgba(15, 40, 40, 0.08), 0 4px 12px rgba(15, 40, 40, 0.06);
+      --shadow-lg: 0 4px 24px rgba(15, 40, 40, 0.1);
+      --nav-h: 64px;
+      --max: 960px;
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      --font-serif: Georgia, "Times New Roman", "Noto Serif", serif;
+      --transition: 0.25s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--teal); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--teal-deep); }
+    ul { list-style: none; }
+
+    :focus-visible {
+      outline: 3px solid var(--teal-light);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--teal-deep);
+      color: var(--white);
+      padding: 0.75rem 1.25rem;
+      z-index: 1000;
+      border-radius: var(--radius);
+      font-weight: 600;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* ===== Header / Nav ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cream-dark);
+      height: var(--nav-h);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-h);
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--teal-deep);
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--slate-soft); font-weight: 500; }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius);
+    }
+    .nav-toggle:hover { background: var(--cream-dark); }
+    .nav-toggle .bar {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: var(--slate);
+      border-radius: 1px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+    .nav-menu.open { display: block; }
+    .nav-menu a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: var(--slate);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .nav-menu a:hover,
+    .nav-menu a:focus-visible { background: var(--cream-warm); color: var(--teal-deep); }
+
+    @media (min-width: 768px) {
+      .nav-toggle { display: none; }
+      .nav-menu {
+        display: flex !important;
+        position: static;
+        background: transparent;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        gap: 0.25rem;
+      }
+      .nav-menu a {
+        padding: 0.5rem 0.85rem;
+        border-radius: var(--radius);
+        font-size: 0.9rem;
+      }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 3.5rem 0 3rem;
+      background:
+        linear-gradient(160deg, var(--cream) 0%, var(--cream-warm) 50%, #e8f2f2 100%);
+      border-bottom: 1px solid var(--cream-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle abstract koru-inspired accent — geometric spiral suggestion only */
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -40px;
+      width: 280px;
+      height: 280px;
+      border: 2px solid rgba(13, 79, 79, 0.07);
+      border-radius: 50%;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: 40px;
+      width: 160px;
+      height: 160px;
+      border: 2px solid rgba(13, 79, 79, 0.05);
+      border-radius: 50%;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.85rem, 5vw, 2.6rem);
+      font-weight: 750;
+      color: var(--slate);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-role {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--teal-deep);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-location {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hero-location svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.35rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition), transform 0.15s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn svg { width: 18px; height: 18px; }
+
+    .btn-primary {
+      background: var(--teal-deep);
+      color: var(--white);
+      border-color: var(--teal-deep);
+    }
+    .btn-primary:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal-deep);
+      border-color: var(--teal-deep);
+    }
+    .btn-secondary:hover {
+      background: var(--teal-deep);
+      color: var(--white);
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 3.5rem 0;
+    }
+    section:nth-child(even of .section) {
+      background: var(--white);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3.5vw, 1.85rem);
+      font-weight: 700;
+      color: var(--slate);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--cream-dark);
+      display: inline-block;
+      min-width: 12rem;
+    }
+
+    /* ===== About ===== */
+    #about { background: var(--white); }
+
+    .summary {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 68ch;
+      line-height: 1.75;
+    }
+    .summary p + p { margin-top: 1rem; }
+
+    /* ===== Competencies ===== */
+    #competencies { background: var(--cream); }
+
+    .comp-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 600px) {
+      .comp-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .comp-card {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.4rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition), border-color var(--transition);
+      border-left: 3px solid var(--teal);
+    }
+    .comp-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-left-color: var(--teal-mid);
+    }
+    .comp-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--teal-deep);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.01em;
+    }
+    .comp-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== Experience ===== */
+    #experience { background: var(--white); }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .job {
+      padding: 1.5rem 0 1.5rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .job:last-child { border-bottom: none; padding-bottom: 0; }
+    .job:first-child { padding-top: 0; }
+
+    .job-header {
+      margin-bottom: 0.85rem;
+    }
+    .job-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--slate);
+      letter-spacing: -0.01em;
+    }
+    .job-org {
+      font-weight: 600;
+      color: var(--teal-deep);
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
+    }
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin-top: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--slate-soft);
+    }
+    .job-note {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--teal);
+      background: rgba(13, 79, 79, 0.06);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .job-bullets {
+      margin-top: 0.75rem;
+      padding-left: 0;
+    }
+    .job-bullets li {
+      position: relative;
+      padding-left: 1.15rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .job-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal-mid);
+      opacity: 0.7;
+    }
+
+    /* ===== Education ===== */
+    #education { background: var(--cream); }
+
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .edu-item {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.35rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+    .edu-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate);
+    }
+    .edu-item .edu-org {
+      color: var(--teal-deep);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .edu-item .edu-year {
+      color: var(--slate-soft);
+      font-size: 0.85rem;
+    }
+    .edu-item .badge {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(13, 79, 79, 0.08);
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .additional {
+      margin-top: 2.5rem;
+    }
+    .additional h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--slate);
+      margin-bottom: 1rem;
+    }
+    .addl-list li {
+      position: relative;
+      padding-left: 1.15rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .addl-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal-mid);
+      opacity: 0.7;
+    }
+
+    /* ===== Contact ===== */
+    #contact {
+      background: var(--teal-deep);
+      color: var(--cream);
+    }
+    #contact .section-label { color: var(--teal-light); }
+    #contact .section-title {
+      color: var(--white);
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+    #contact .contact-intro {
+      color: rgba(250, 247, 242, 0.85);
+      max-width: 50ch;
+      margin-bottom: 1.75rem;
+      font-size: 1.02rem;
+    }
+
+    .contact-cards {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px) {
+      .contact-cards { grid-template-columns: 1fr 1fr; }
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+      transition: background var(--transition);
+    }
+    .contact-card:hover { background: rgba(255, 255, 255, 0.12); }
+    .contact-card .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 0.35rem;
+    }
+    .contact-card a,
+    .contact-card .value {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1.05rem;
+      word-break: break-word;
+    }
+    .contact-card a:hover { color: var(--cream-warm); text-decoration: underline; }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      background: var(--slate);
+      color: rgba(255, 255, 255, 0.65);
+      padding: 1.5rem 0;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .site-footer a { color: var(--teal-light); }
+    .site-footer a:hover { color: var(--cream); }
+
+    /* ===== Scroll reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Print ===== */
+    @media print {
+      .site-header, .nav-toggle, .hero-ctas, .skip-link { display: none !important; }
+      body { background: white; color: black; font-size: 11pt; }
+      .hero { padding: 1rem 0; background: none; border: none; }
+      .hero::before, .hero::after { display: none; }
+      section { padding: 1.25rem 0; background: white !important; break-inside: avoid; }
+      .comp-card, .edu-item, .contact-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+      }
+      #contact { background: white !important; color: black; }
+      #contact .section-title, #contact .contact-card a, #contact .contact-card .value { color: black; }
+      #contact .section-label, #contact .contact-card .label { color: #333; }
+      .site-footer { background: white; color: #666; border-top: 1px solid #ccc; }
+      a[href^="mailto:"], a[href^="tel:"] { color: black; text-decoration: underline; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="Akash T. Raju — home">Akash <span>T. Raju</span></a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        aria-label="Open menu"
+        id="nav-toggle"
+      >
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+      <nav class="nav-menu" id="primary-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#competencies">Competencies</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-name">
+      <div class="container">
+        <p class="hero-eyebrow">Personal Portfolio</p>
+        <h1 id="hero-name">Akash Thattanparambil Raju</h1>
+        <p class="hero-role">Case Manager | Ministry of Social Development</p>
+        <p class="hero-location">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Kaikōura, NZ (Canterbury Region)
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:akashthattanparambil@gmail.com">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email me
+          </a>
+          <a class="btn btn-secondary" href="tel:+64224510684">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container reveal">
+        <p class="section-label">About</p>
+        <h2 class="section-title" id="about-title">Professional Summary</h2>
+        <div class="summary">
+          <p>
+            Dedicated Case Manager currently employed at MSD Kaikōura with over six years of experience across New Zealand’s social services, healthcare, and hospitality sectors. Proven ability to coordinate across multiple stakeholders and agencies, progressing complex case files through to resolution whilst maintaining meticulous compliance with regulatory frameworks in high-volume environments.
+          </p>
+          <p>
+            Deeply committed to supporting individuals and whānau through complex processes with professionalism, integrity, and unwavering commitment to Te Tiriti o Waitangi principles. Seeking to apply case coordination, regulatory compliance, and systems-thinking expertise to support the Employment Relations Authority in bringing matters to determination.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competencies -->
+    <section id="competencies" class="section" aria-labelledby="comp-title">
+      <div class="container">
+        <p class="section-label reveal">Skills</p>
+        <h2 class="section-title reveal" id="comp-title">Core Competencies</h2>
+        <div class="comp-grid">
+          <article class="comp-card reveal">
+            <h3>Case File Management &amp; Coordination</h3>
+            <p>Coordinating across multiple stakeholders, agencies, and parties to progress complex case files through to resolution; maintaining detailed, compliant records and ensuring procedural integrity throughout.</p>
+          </article>
+          <article class="comp-card reveal">
+            <h3>Administrative Coordination</h3>
+            <p>Coordinating across diverse teams and stakeholders, scheduling meetings, managing deadlines with precision; ensuring transparent communication and procedural compliance aligned with legislative frameworks.</p>
+          </article>
+          <article class="comp-card reveal">
+            <h3>Regulatory Compliance</h3>
+            <p>Deep knowledge of legislative and policy frameworks; conducting rigorous compliance checks; preparing defensible case files for Reviews of Decision; ensuring transparent, accountable decision-making.</p>
+          </article>
+          <article class="comp-card reveal">
+            <h3>Stakeholder Communication</h3>
+            <p>Professional and collaborative engagement with parties, providers, and government agencies across inter-agency systems; clear, transparent, timely communication grounded in procedural integrity.</p>
+          </article>
+          <article class="comp-card reveal">
+            <h3>Document Review</h3>
+            <p>Meticulous attention to detail; comprehensive document review for accuracy, completeness, regulatory compliance, and alignment with policy frameworks.</p>
+          </article>
+          <article class="comp-card reveal">
+            <h3>Technology &amp; Systems</h3>
+            <p>Proficient in MSD systems; Microsoft Office suite; quick learner with demonstrated ability to master new systems.</p>
+          </article>
+          <article class="comp-card reveal">
+            <h3>Te Tiriti-Grounded Practice</h3>
+            <p>Proactively embedding Te Ao Māori principles and mātauranga Māori perspectives as foundational to service delivery; demonstrating confident and competent engagement aligned with Te Tiriti o Waitangi obligations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section" aria-labelledby="exp-title">
+      <div class="container">
+        <p class="section-label reveal">Career</p>
+        <h2 class="section-title reveal" id="exp-title">Experience</h2>
+        <div class="timeline">
+
+          <article class="job reveal">
+            <div class="job-header">
+              <h3 class="job-title">General Case Manager</h3>
+              <p class="job-org">Ministry of Social Development – Kaikōura, NZ</p>
+              <div class="job-meta">
+                <span>November 2025 – Present</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Manage diverse caseload, actively coordinating across multiple stakeholders and agencies to progress case files through to resolution whilst maintaining accurate, compliant records grounded in procedural integrity</li>
+              <li>Coordinate across multiple stakeholders, parties, and agencies, demonstrating commitment to collaborative systems-thinking; ensure clarity and timely information flow to support unified outcomes</li>
+              <li>Conduct rigorous compliance checks, make transparent and defensible decisions aligned with policy and legislative frameworks; prepare robust case files for potential Reviews of Decision</li>
+              <li>Schedule meetings and manage deadlines with precision, balancing availability of multiple parties and stakeholders; coordinate across complex inter-agency systems to facilitate meaningful progress</li>
+              <li>Review documents with meticulous attention to compliance, accuracy, and regulatory alignment; identify errors and inconsistencies; ensure all materials meet high standards of procedural integrity</li>
+              <li>Demonstrate ability to work effectively under pressure in fast-paced, complex environments whilst maintaining commitment to procedural integrity and adapting to changing priorities and policy</li>
+              <li>Proactively embed Te Ao Māori principles and mātauranga Māori perspectives in all case management interactions, delivering confident, competent, culturally responsive service aligned with Te Tiriti o Waitangi obligations; engage proactively with whānau, hapū, and iwi</li>
+            </ul>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-header">
+              <h3 class="job-title">Support Worker</h3>
+              <p class="job-org">Te Whare Ngakau Trust – Christchurch, NZ</p>
+              <div class="job-meta">
+                <span>8 May 2024 – November 2025</span>
+              </div>
+              <p class="job-note">Higher complexity caseload with intensive client support needs</p>
+            </div>
+            <ul class="job-bullets">
+              <li>Assessed complex client needs and developed intensive, person-centred support plans</li>
+              <li>Built trusted, sustained relationships with clients, whānau, clinical teams, and external service providers</li>
+              <li>Maintained detailed, accurate and confidential client records in compliance with organisational policy</li>
+              <li>Coached clients transitioning to independence, delivering long-term positive outcomes</li>
+            </ul>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-header">
+              <h3 class="job-title">Support Worker</h3>
+              <p class="job-org">IDEA Services – New Zealand</p>
+              <div class="job-meta">
+                <span>April 2023 – October 2025</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Assessed client needs and developed person-centred support plans, facilitating referrals to specialist services</li>
+              <li>Built and maintained relationships with clients, whānau, clinical teams, and external service providers</li>
+              <li>Maintained accurate and confidential records in compliance with organisational policy and privacy legislation</li>
+              <li>Coached clients transitioning to independence, demonstrating commitment to long-term positive outcomes</li>
+            </ul>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-header">
+              <h3 class="job-title">Caregiver &amp; Coordinator</h3>
+              <p class="job-org">Chatswood Retirement Village – Christchurch, NZ</p>
+              <div class="job-meta">
+                <span>2021 – 2023</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Provided direct care and coordinated support for residents, ensuring dignity and quality of life</li>
+              <li>Coordinated with clinical teams and external providers to ensure seamless care delivery</li>
+              <li>Maintained accurate resident records and documentation in compliance with aged care regulations</li>
+            </ul>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-header">
+              <h3 class="job-title">Front Office Guest Service Associate</h3>
+              <p class="job-org">Distinction Hotel – Christchurch, NZ</p>
+              <div class="job-meta">
+                <span>September 2020 – August 2021</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Managed high-volume guest enquiries and financial transactions with precision and professionalism</li>
+              <li>Processed payments, maintained accurate guest records, and resolved client complaints effectively</li>
+              <li>Delivered exceptional customer service in a fast-paced, customer-facing environment</li>
+            </ul>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-header">
+              <h3 class="job-title">Kitchen Hand</h3>
+              <p class="job-org">Distinction Hotel – Christchurch, NZ</p>
+              <div class="job-meta">
+                <span>June 2020 – August 2020</span>
+              </div>
+            </div>
+            <ul class="job-bullets">
+              <li>Supported kitchen operations, maintaining cleanliness and efficiency standards</li>
+              <li>Demonstrated reliability and work ethic in a hospitality environment</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section" aria-labelledby="edu-title">
+      <div class="container">
+        <p class="section-label reveal">Qualifications</p>
+        <h2 class="section-title reveal" id="edu-title">Education</h2>
+        <div class="edu-list">
+          <article class="edu-item reveal">
+            <h3>Graduate Diploma in Supply Chain &amp; Logistics (Level 7)</h3>
+            <p class="edu-org">Ara Institute of Canterbury</p>
+            <p class="edu-year">2020</p>
+          </article>
+          <article class="edu-item reveal">
+            <h3>Certificate in Health and Wellbeing (Level 4)</h3>
+            <p class="edu-org">New Zealand Tertiary College</p>
+            <p class="edu-year">2024</p>
+          </article>
+          <article class="edu-item reveal">
+            <h3>Certificate in Māori Protocol and Language for Home &amp; Community (Level 4)</h3>
+            <p class="edu-org">Te Wānanga o Raukawa (Poupou Huia Te Reo 1)</p>
+            <p class="edu-year">Currently Enrolled</p>
+            <span class="badge">In progress</span>
+          </article>
+          <article class="edu-item reveal">
+            <h3>Bachelor of Commerce – Computer Science &amp; Co-operation</h3>
+            <p class="edu-org">Mahatma Gandhi University, India</p>
+            <p class="edu-year">2016</p>
+          </article>
+        </div>
+
+        <div class="additional reveal">
+          <h3>Additional</h3>
+          <ul class="addl-list">
+            <li>COVID-19 Response Recognition Award – New Zealand Government</li>
+            <li>Full New Zealand Driver’s Licence</li>
+            <li>First Aid Certificate (expired March 2026 — available to renew immediately if required)</li>
+            <li>Actively developing te reo Māori and tikanga knowledge in line with Te Tiriti o Waitangi obligations</li>
+            <li>References available on request</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="section-label reveal">Get in touch</p>
+        <h2 class="section-title reveal" id="contact-title">Contact</h2>
+        <p class="contact-intro reveal">
+          Based in Kaikōura, Canterbury. Open to discussing how case coordination and regulatory compliance experience can support your organisation.
+        </p>
+        <div class="contact-cards">
+          <div class="contact-card reveal">
+            <p class="label">Email</p>
+            <a href="mailto:akashthattanparambil@gmail.com">akashthattanparambil@gmail.com</a>
+          </div>
+          <div class="contact-card reveal">
+            <p class="label">Phone</p>
+            <a href="tel:+64224510684">022 451 0684</a>
+          </div>
+          <div class="contact-card reveal">
+            <p class="label">Location</p>
+            <p class="value">Kaikōura, NZ (Canterbury Region)</p>
+          </div>
+          <div class="contact-card reveal">
+            <p class="label">Current role</p>
+            <p class="value">Case Manager, MSD Kaikōura</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Akash Thattanparambil Raju. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var toggle = document.getElementById("nav-toggle");
+      var menu = document.getElementById("primary-nav");
+      var yearEl = document.getElementById("year");
+
+      if (yearEl) {
+        yearEl.textContent = String(new Date().getFullYear());
+      }
+
+      function setMenuOpen(open) {
+        if (!toggle || !menu) return;
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        menu.classList.toggle("open", open);
+      }
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+          var open = toggle.getAttribute("aria-expanded") !== "true";
+          setMenuOpen(open);
+        });
+
+        menu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            setMenuOpen(false);
+          });
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") setMenuOpen(false);
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.matchMedia("(min-width: 768px)").matches) {
+            setMenuOpen(false);
+          }
+        });
+      }
+
+      /* Subtle scroll reveal */
+      var reveals = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -40px 0px", threshold: 0.08 }
+        );
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add("visible"); });
+      }
+    })();
+  </script>
+</body>
+</html>
