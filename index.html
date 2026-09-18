@@ -262,7 +262,7 @@
     }
     @media (min-width: 880px) {
       .hero-inner {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1fr;
         gap: 3.5rem;
       }
     }
@@ -347,47 +347,6 @@
       color: var(--text);
       transform: translateY(-2px);
       background: rgba(124, 140, 255, 0.08);
-    }
-
-    .hero-photo {
-      position: relative;
-      justify-self: center;
-      width: min(100%, 22rem);
-      opacity: 0;
-      animation: fadeUp 1s var(--ease) 0.4s forwards;
-    }
-    @media (min-width: 880px) {
-      .hero-photo { width: min(100%, 26rem); justify-self: end; }
-    }
-    .hero-photo::before {
-      content: "";
-      position: absolute;
-      inset: -12% -8%;
-      background: radial-gradient(ellipse at center, var(--accent-glow), transparent 65%);
-      z-index: 0;
-      filter: blur(8px);
-    }
-    .hero-photo img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: center 15%;
-      border-radius: 1.5rem;
-      border: 1px solid var(--border-strong);
-      box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.55),
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    }
-    .hero-photo-glow {
-      position: absolute;
-      inset: auto -10% -15% -10%;
-      height: 40%;
-      background: linear-gradient(to top, var(--bg), transparent);
-      z-index: 2;
-      pointer-events: none;
-      border-radius: 0 0 1.5rem 1.5rem;
     }
 
     @keyframes fadeUp {
@@ -727,9 +686,6 @@
             <a class="btn btn-ghost" href="#journey">Explore the journey</a>
           </div>
         </div>
-        <div class="hero-photo">
-          <img src="akash.jpg" alt="Portrait of Akash Thattanparambil Raju" width="640" height="800" fetchpriority="high">
-          <div class="hero-photo-glow" aria-hidden="true"></div>
         </div>
       </div>
     </header>

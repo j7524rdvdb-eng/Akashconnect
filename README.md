@@ -12,14 +12,13 @@ Personal portfolio for **Akash Thattanparambil Raju** — Case Manager at the Mi
 - Custom domain via `CNAME`: `www.akashconnect.com`
 - Fallback URL: `https://j7524rdvdb-eng.github.io/Akashconnect/`
 
-No build step — self-contained `index.html` with embedded CSS/JS and `akash.jpg`.
+No build step — self-contained `index.html` with embedded CSS/JS.
 
 ## Files
 
 | File | Purpose |
 |------|---------|
 | `index.html` | Dark modern portfolio (floating dock, journey cards, mailto contact form) |
-| `akash.jpg` | Portrait photo |
 | `CNAME` | Custom domain for GitHub Pages |
 | `README.md` | This file |
 
