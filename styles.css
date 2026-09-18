@@ -550,3 +550,72 @@ a:focus-visible,
   color: var(--soft, #d4c4cc);
   font-size: 0.98rem;
 }
+
+.contact-wordmark--compact {
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  margin-bottom: 1.25rem;
+}
+.enquiry-form {
+  margin-top: 2.25rem;
+  max-width: 40rem;
+  display: grid;
+  gap: 1.1rem;
+}
+.form-row {
+  display: grid;
+  gap: 1.1rem;
+}
+@media (min-width: 720px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.field label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mauve);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 0.7rem;
+  background: rgba(18, 16, 26, 0.72);
+  color: var(--cream);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.field textarea { resize: vertical; min-height: 8rem; }
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+  border-color: transparent;
+}
+.enquiry-form .btn { justify-self: start; margin-top: 0.25rem; }
+.enquiry-form .btn:disabled { opacity: 0.65; cursor: wait; }
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.form-status {
+  margin: 1.25rem 0 0;
+  max-width: 40rem;
+  padding: 0.9rem 1.05rem;
+  border-radius: 0.7rem;
+  font-size: 0.98rem;
+}
+.form-status.ok {
+  background: rgba(107, 140, 206, 0.16);
+  border: 1px solid rgba(107, 140, 206, 0.35);
+  color: var(--cream);
+}

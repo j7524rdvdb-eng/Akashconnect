@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Contact Akash Thattanparambil Raju. Based in New Zealand.">
+  <meta name="description" content="Contact Akash Thattanparambil Raju. Employer enquiries welcome. Based in New Zealand.">
   <meta name="theme-color" content="#0a0a12">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
   <title>Contact · Akash Thattanparambil Raju</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,13 +32,49 @@
       <section class="contact-stage" id="contact" aria-labelledby="contact-heading">
         <div class="contact-inner">
           <p class="section-label reveal">Get in touch</p>
-          <h1 class="contact-wordmark reveal" id="contact-heading">Contact</h1>
+          <h1 class="contact-wordmark contact-wordmark--compact reveal" id="contact-heading">Contact</h1>
           <p class="contact-intro reveal">
             Based in New Zealand. Open to conversations about work, community, and connecting across cultures.
           </p>
           <p class="contact-note reveal reveal-d1">
-            Contact details are available on request.
+            Employers can send a private enquiry below. My email address is not listed on this site.
           </p>
+
+          <p class="form-status" id="form-status" hidden role="status"></p>
+
+          <form class="enquiry-form reveal reveal-d1" id="employer-form" method="post" novalidate>
+            <input type="hidden" name="_subject" value="Employer enquiry via akashconnect.com">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://www.akashconnect.com/contact.html?sent=1">
+            <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="organisation">Organisation</label>
+                <input id="organisation" name="organisation" type="text" autocomplete="organization" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="role">Role or subject</label>
+                <input id="role" name="role" type="text" maxlength="120">
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send enquiry</button>
+          </form>
         </div>
       </section>
     </main>
