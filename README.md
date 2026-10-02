@@ -1,9 +1,9 @@
-# Akash Thattanparambil Raju — Personal Portfolio
+# Akash Thattanparambil Raju — akashconnect.com
 
-Cinematic, desktop-first personal site for **Akash Thattanparambil Raju** (display: Akash Raju / Akash T. Raju), Case Manager / General Case Manager at the **Ministry of Social Development (MSD)**, New Zealand — since November 2025.
+**Visiting = boarding a tramway into Christchurch.** Scroll is the ride. Stops along the route reveal experience, skills, and qualifications.
 
-**Christchurch is THE CITY** of the story — from Kerala to Ōtautahi — with iconic places framing home and journey (not claimed workplaces).
+Visual language from Instagram reel `DTklTOtiGN0`: warm dusk/coral city world, black letterbox, vertical split (immersive world + dense info rail), compact geometric sans, hard editorial cuts, 200–400ms ease-out.
 
-Visual language references Instagram reel `DTklTOtiGN0`: warm dusk coral–mauve, black letterbox, cream type, olive accents.
+**Christchurch is THE CITY** — Port Hills, Cathedral Square, Bridge of Remembrance, Avon/Te Pae, Hagley, New Brighton, Cardboard Cathedral, Riverside Market.
 
-Private employer contact via FormSubmit (email not listed publicly).
+Role: Case Manager / General Case Manager at MSD (since Nov 2025). Private enquiry via FormSubmit (email not public).
