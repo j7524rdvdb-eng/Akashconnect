@@ -9,9 +9,9 @@
   --accent-hover: #5ca0ff;
   --ok: #3dd68c;
   --radius: 12px;
-  --max: 960px;
-  --narrow: 680px;
-  --header: 64px;
+  --max: 1120px;
+  --narrow: 760px;
+  --header: 68px;
   --font: "DM Sans", system-ui, -apple-system, sans-serif;
   --display: "Outfit", "DM Sans", system-ui, sans-serif;
 }
@@ -412,3 +412,25 @@ a:hover { color: var(--accent-hover); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Desktop / laptop: full readable layout, no voids */
+@media (min-width: 1100px) {
+  .wrap { width: min(100% - 3.5rem, var(--max)); }
+  .narrow { width: min(100% - 3.5rem, var(--narrow)); }
+  .hero { padding: 4.5rem 0 4rem; }
+  .lead { max-width: 46rem; font-size: 1.2rem; }
+  .section { padding: 4rem 0; }
+  .nav { gap: 1.5rem; }
+  .nav a { font-size: 1rem; }
+  .timeline li { padding: 1.4rem 1.5rem; }
+}
+
+@media (min-width: 1366px) {
+  body { font-size: 1.1rem; }
+  .hero { padding: 5rem 0 4.25rem; }
+  .section { padding: 4.5rem 0; }
+}
+
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+.site-footer { flex-shrink: 0; }
