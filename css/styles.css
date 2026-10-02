@@ -1063,6 +1063,59 @@ button {
 }
 
 /* ========== CONTACT ========== */
+.contact-form {
+  max-width: 46rem;
+  margin: 0 auto 6rem;
+  text-align: left;
+}
+
+.contact-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.contact-form label span {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.95rem 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--off-white);
+  font: inherit;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.contact-form textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-form .contact__actions {
+  margin-bottom: 0;
+}
+
 .contact {
   padding: clamp(6rem, 14vh, 10rem) clamp(1.5rem, 4vw, 3.5rem) 4rem;
   text-align: center;
@@ -1383,6 +1436,10 @@ button {
 }
 
 @media (max-width: 600px) {
+  .contact-form__grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact__actions {
     flex-direction: column;
     align-items: stretch;

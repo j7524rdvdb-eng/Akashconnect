@@ -126,6 +126,13 @@
     if (e.key === "Escape") closeAsk();
   });
 
+  /* ---------- Private enquiry form ---------- */
+  // Keep the destination out of the public markup while preserving the private enquiry flow.
+  const enquiryForm = document.getElementById("enquiryForm");
+  if (enquiryForm) {
+    enquiryForm.action = atob("aHR0cHM6Ly9mb3Jtc3VibWl0LmNvL2FrYXNodGhhdHRhbnBhcmFtYmlsQGdtYWlsLmNvbQ==");
+  }
+
   /* ---------- GSAP ---------- */
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
     console.warn("GSAP not loaded — static layout only.");

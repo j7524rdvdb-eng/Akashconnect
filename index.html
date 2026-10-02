@@ -478,12 +478,32 @@
           <span class="chapter__heading-line chapter__heading-line--serif">CONNECT.</span>
         </h2>
         <p class="contact__intro">
-          I am based in New Zealand. I am open to conversations about public service, employment support, career development, policy, community, and connecting across cultures. If something in my story resonates, I would like to hear from you.
+          I am based in New Zealand. I am open to conversations about public service, employment support, career development, policy, community, and connecting across cultures. My email address is not listed on this site, but you can send me a private enquiry below.
         </p>
-        <div class="contact__actions">
-          <a href="mailto:akashthattanparambil@gmail.com" class="btn" data-cursor="OPEN">EMAIL ↗</a>
-          <span class="btn btn--muted" aria-disabled="true" title="CV available on request">CV ON REQUEST</span>
-        </div>
+        <form class="contact-form" id="enquiryForm" method="POST" action="#">
+          <input type="hidden" name="_subject" value="Private enquiry via akashconnect.com" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://www.akashconnect.com/#contact" />
+          <div class="contact-form__grid">
+            <label>
+              <span>YOUR NAME</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              <span>YOUR EMAIL</span>
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+          </div>
+          <label>
+            <span>YOUR MESSAGE</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <div class="contact__actions">
+            <button type="submit" class="btn" data-cursor="OPEN">SEND A PRIVATE ENQUIRY ↗</button>
+            <span class="btn btn--muted" aria-disabled="true" title="CV available on request">CV ON REQUEST</span>
+          </div>
+        </form>
         <footer class="site-footer">
           <p class="site-footer__name">AKASH THATTANPARAMBIL RAJU</p>
           <p class="site-footer__role">CASE MANAGER · MINISTRY OF SOCIAL DEVELOPMENT</p>
