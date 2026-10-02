@@ -2,198 +2,211 @@
 <html lang="en-NZ">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Ride the Christchurch tramway — a playable Christchurch tramway game of Akash Thattanparambil Raju’s path: Ara → Distinction → Nelson → Christchurch → IDEA → Te Whare Ngakau → Kaikōura → Work and Income." />
-  <meta name="theme-color" content="#0a0608" />
-  <meta property="og:title" content="Akash · Christchurch Tramway" />
-  <meta property="og:description" content="Scroll to ride. Missions unlock experience, skills and qualifications across Christchurch." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Akash Thattanparambil Raju — support and case management experience across New Zealand. Based in Christchurch. Open to employment-focused and leadership roles." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Akash Thattanparambil Raju" />
+  <meta property="og:description" content="From logistics study to case management — my path across New Zealand." />
   <meta property="og:type" content="website" />
-  <title>Akash · Christchurch Tramway</title>
+  <title>Akash Thattanparambil Raju</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=game3" />
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-    }
-  }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=simple1" />
 </head>
 <body>
-  <a class="skip" href="#missionPanel">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- BOOT / TITLE -->
-  <div id="boot" class="boot" role="dialog" aria-modal="true" aria-labelledby="bootTitle">
-    <div class="boot__fx" aria-hidden="true"></div>
-    <div class="boot__panel">
-      <p class="boot__eyebrow">PLAYER MODE · CANTERBURY</p>
-      <h1 id="bootTitle" class="boot__title">CHRISTCHURCH<br /><span>TRAMWAY</span></h1>
-      <p class="boot__sub">Board the line. Ride the city. Unlock the path.</p>
-      <p class="boot__player">AKASH THATTANPARAMBIL RAJU</p>
-      <ul class="boot__stats" aria-hidden="true">
-        <li><strong>09</strong> STOPS</li>
-        <li><strong>XP</strong> MISSIONS</li>
-        <li><strong>NZ</strong> BASED</li>
-      </ul>
-      <button type="button" class="boot__start" id="btnStart">▶ START RIDE</button>
-      <p class="boot__hint">Scroll to ride · Click glowing tokens · Find the gold Commendation · M mute</p>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Akash T. Raju</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#path">Path</a>
+        <a href="#recognition">Recognition</a>
+        <a href="#ahead">Ahead</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="boot__load" id="bootLoad" aria-live="polite">
-      <div class="boot__bar"><i id="bootFill"></i></div>
-      <span id="bootPct">Loading city… 0%</span>
-    </div>
-  </div>
+    <nav class="mobile-nav" id="mobileNav" hidden>
+      <a href="#about">About</a>
+      <a href="#path">Path</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#ahead">Ahead</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <!-- 3D WORLD -->
-  <canvas id="world" class="world" aria-hidden="true"></canvas>
-  <div class="world-grade" aria-hidden="true"></div>
-  <div class="letterbox" aria-hidden="true">
-    <div class="letterbox__bar letterbox__bar--top"></div>
-    <div class="letterbox__bar letterbox__bar--bottom"></div>
-  </div>
-
-  <!-- AAA HUD -->
-  <div class="hud" id="hud" hidden>
-    <header class="hud__top">
-      <div class="hud__left">
-        <span class="hud__live"><i></i> LIVE</span>
-        <span class="hud__mode" id="hudMode">PLAYER</span>
-        <span class="hud__map-name">CHRISTCHURCH · TRAMWAY</span>
-      </div>
-      <div class="hud__center">
-        <div class="hud__level-wrap">
-          <span class="hud__lvl-label">LEVEL</span>
-          <span class="hud__lvl" id="hudLevel">00</span>
-        </div>
-        <div class="hud__xp">
-          <div class="hud__xp-meta">
-            <span id="hudXpLabel">XP 0</span>
-            <span id="hudXpNext">/ 100</span>
-          </div>
-          <div class="hud__xp-bar"><i id="hudXpFill"></i></div>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Christchurch · New Zealand</p>
+        <h1>Akash Thattanparambil Raju</h1>
+        <p class="lead">
+          I came to New Zealand to study logistics, then built my career through hospitality,
+          caregiving, and support work. I am in Kaikōura now, and soon returning to Christchurch
+          as a Case Manager at Work and Income — with a clear aim toward employment case management and leadership.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#path">See my path</a>
+          <a class="btn btn-ghost" href="#contact">Enquire</a>
         </div>
       </div>
-      <div class="hud__right">
-        <span class="hud__loot" id="hudLoot" title="Collectibles">◆ 0/6</span>
-        <button type="button" class="hud__btn" id="btnMute" aria-pressed="false" title="Mute (M)">🔊 AUDIO</button>
-        <button type="button" class="hud__btn" id="btnObjectives" aria-expanded="false">OBJECTIVES</button>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="wrap narrow">
+        <p class="section-label">About</p>
+        <h2 id="about-heading">My story, in plain words</h2>
+        <p>
+          I am first and foremost someone who works with people. My path started with a Graduate Diploma
+          in Supply Chain &amp; Logistics at Ara Institute of Canterbury. From there I took on kitchen and
+          front-office work at Distinction Hotel in Christchurch, then moved into caregiving — first in
+          Nelson, then back in Christchurch — and into support work with IDEA Services and Te Whare Ngakau Trust.
+        </p>
+        <p>
+          Each role taught me how to listen carefully, keep accurate records, stay calm under pressure,
+          and help people take the next practical step. That is the thread that runs through everything I do.
+        </p>
       </div>
-    </header>
+    </section>
 
-    <aside class="hud__objectives" id="objectives" hidden>
-      <p class="hud__obj-title">ACTIVE OBJECTIVES</p>
-      <ul id="objList"></ul>
-    </aside>
+    <section class="section section-alt" id="path" aria-labelledby="path-heading">
+      <div class="wrap">
+        <p class="section-label">Path</p>
+        <h2 id="path-heading">Where I have been</h2>
+        <p class="section-intro">Real places and employers, in order.</p>
 
-    <div class="hud__toast" id="toast" hidden></div>
-
-    <div class="hud__place" id="hudPlace">
-      <span class="hud__place-tag">LOCATION</span>
-      <strong id="hudPlaceName">Port Hills</strong>
-    </div>
-
-    <div class="hud__quest" id="hudQuest">
-      <span class="hud__quest-tag">SIDE QUEST</span>
-      <strong>Find the gold Government Commendation</strong>
-      <p>Click glowing tokens along the ride. The gold one unlocks a fun fact.</p>
-    </div>
-
-    <div class="hud__prompt" id="hudPrompt" hidden>
-      <span id="hudPromptText">PRESS <kbd>E</kbd> OR CLICK · COLLECT</span>
-    </div>
-
-    <div class="hud__bottom">
-      <div class="hud__minimap" aria-label="Route minimap">
-        <canvas id="minimap" width="220" height="120"></canvas>
-        <span class="hud__minimap-label">ROUTE MAP</span>
+        <ol class="timeline">
+          <li>
+            <div class="tl-meta">Study · Christchurch</div>
+            <h3>Ara Institute of Canterbury</h3>
+            <p>Graduate Diploma in Supply Chain &amp; Logistics — the reason I came to New Zealand.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Hospitality · Christchurch</div>
+            <h3>Distinction Hotel</h3>
+            <p>Started as a kitchen hand, then moved into front office — guest service, records, and a fast-paced team environment.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Care · Nelson</div>
+            <h3>Caregiver · Nelson</h3>
+            <p>Moved to Nelson (by flight) for caregiver work — hands-on support focused on dignity and daily living.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Care · Christchurch</div>
+            <h3>Caregiver · Christchurch</h3>
+            <p>Returned to Christchurch and continued caregiving, building consistency and trust with the people I supported.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Support work</div>
+            <h3>IDEA Services</h3>
+            <p>Support worker role — person-centred planning, referrals, accurate confidential records, and helping people toward greater independence.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Support work · Christchurch</div>
+            <h3>Te Whare Ngakau Trust</h3>
+            <p>Support worker with a higher-complexity caseload — needs assessment, support plans, and steady coordination with clients and providers.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Now</div>
+            <h3>Kaikōura</h3>
+            <p>Based in Kaikōura at present.</p>
+          </li>
+          <li>
+            <div class="tl-meta">Soon</div>
+            <h3>Work and Income · Case Manager · Christchurch</h3>
+            <p>Moving back to Christchurch soon as a Case Manager at Work and Income.</p>
+          </li>
+        </ol>
       </div>
-      <div class="hud__progress">
-        <div class="hud__progress-meta">
-          <span id="hudStop">BOARDING</span>
-          <span id="hudPct">0%</span>
+    </section>
+
+    <section class="section" id="recognition" aria-labelledby="recognition-heading">
+      <div class="wrap narrow">
+        <p class="section-label">Recognition</p>
+        <h2 id="recognition-heading">A fun fact</h2>
+        <div class="award-card">
+          <p class="award-title">COVID-19 Response Recognition Award</p>
+          <p class="award-org">New Zealand Government</p>
+          <p>
+            I received the COVID-19 Response Recognition Award from the New Zealand Government
+            for contribution during the pandemic response.
+          </p>
         </div>
-        <div class="hud__progress-bar"><i id="hudProgress"></i></div>
-        <p class="hud__scroll-hint" id="scrollHint">SCROLL TO RIDE →</p>
       </div>
-      <div class="hud__compass" aria-hidden="true">
-        <span>N</span>
-        <div class="hud__compass-ring" id="compassRing"></div>
+    </section>
+
+    <section class="section section-alt" id="ahead" aria-labelledby="ahead-heading">
+      <div class="wrap narrow">
+        <p class="section-label">Looking ahead</p>
+        <h2 id="ahead-heading">Where I am going</h2>
+        <p>
+          After working as a Case Manager in Kaikōura / through Work and Income in Christchurch,
+          my ambition is to work as an <strong>Employment Case Manager</strong>, and to grow into
+          <strong>leadership</strong> roles.
+        </p>
+        <p>
+          I am open to employment-focused roles that put people into work, build capability,
+          and let me take on more responsibility over time.
+        </p>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- MISSION OVERLAY (in-world unlocks) -->
-  <section class="mission" id="missionPanel" hidden aria-live="polite">
-    <div class="mission__frame">
-      <div class="mission__media">
-        <img id="missionImg" alt="" />
-        <div class="mission__grade"></div>
-        <div class="mission__corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <span class="mission__badge" id="missionBadge">MISSION UNLOCKED</span>
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="wrap narrow">
+        <p class="section-label">Contact</p>
+        <h2 id="contact-heading">Get in touch</h2>
+        <p class="section-intro">
+          Based around Christchurch, New Zealand. Employers can send a private enquiry below.
+          My email address is not listed on this site.
+        </p>
+
+        <div class="form-status" id="formStatus" hidden></div>
+
+        <form class="enquiry-form" id="enquiryForm" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Employer enquiry via akashconnect.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.akashconnect.com/?sent=1#contact" />
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <label>
+            Your name
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Organisation
+            <input type="text" name="organisation" autocomplete="organization" />
+          </label>
+          <label>
+            Work email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            Role or subject
+            <input type="text" name="subject_line" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Send enquiry</button>
+        </form>
       </div>
-      <article class="mission__card">
-        <p class="mission__type" id="missionType">MISSION</p>
-        <h2 id="missionTitle">Title</h2>
-        <p class="mission__meta" id="missionMeta"></p>
-        <p class="mission__body" id="missionBody"></p>
-        <ul class="mission__loot" id="missionLoot"></ul>
-        <div class="mission__xp" id="missionXp">+0 XP</div>
-        <div class="mission__actions">
-          <button type="button" class="mission__continue" id="btnContinue">CONTINUE RIDE →</button>
-        </div>
-      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Akash Thattanparambil Raju · Christchurch, New Zealand</p>
+      <p class="footer-note">akashconnect.com</p>
     </div>
-  </section>
+  </footer>
 
-  <!-- SCROLL TRACK (drives progress) -->
-  <div id="track" class="track" aria-hidden="true"></div>
-
-  <!-- TERMINUS / CONTACT (final stop) -->
-  <section class="terminus" id="terminus" hidden>
-    <div class="terminus__inner">
-      <p class="terminus__eyebrow">LVL 09 · TERMINUS</p>
-      <h2>End of the line · let’s connect</h2>
-      <p class="terminus__intro">
-        Kaikōura now · returning to Christchurch soon. Open to employment-focused work, case management, and leadership.
-        Employers can send a private enquiry — my email is not listed on this site.
-      </p>
-      <form class="form" id="enquiryForm" method="POST" action="#">
-        <input type="hidden" name="_subject" value="Employer enquiry via akashconnect.com" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="https://www.akashconnect.com/?sent=1" />
-        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <div class="form__row">
-          <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
-          <label>Organisation<input type="text" name="organisation" autocomplete="organization" /></label>
-        </div>
-        <div class="form__row">
-          <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
-          <label>Role or subject<input type="text" name="subject_line" /></label>
-        </div>
-        <label>Message<textarea name="message" rows="4" required></textarea></label>
-        <button type="submit" class="form__submit">▶ SEND ENQUIRY</button>
-        <p class="form__sent" id="contactSent" hidden>Thank you. Your enquiry has been sent.</p>
-      </form>
-      <button type="button" class="terminus__back" id="btnBackRide">← RETURN TO RIDE</button>
-      <footer class="foot">
-        <p>From Kerala to Canterbury · Akash Thattanparambil Raju</p>
-        <p>Kaikōura now · Case Manager at Work and Income, Christchurch — soon</p>
-      </footer>
-    </div>
-  </section>
-
-  <noscript>
-    <div class="noscript">
-      <h1>Akash Thattanparambil Raju</h1>
-      <p>Enable JavaScript to ride the Christchurch tramway experience.</p>
-      <p>Path: Ara → Distinction → Nelson → Christchurch → IDEA → Te Whare Ngakau → Kaikōura → Work and Income.</p>
-    </div>
-  </noscript>
-
-  <script type="module" src="js/main.js?v=game3"></script>
+  <script src="js/main.js?v=simple1" defer></script>
 </body>
 </html>

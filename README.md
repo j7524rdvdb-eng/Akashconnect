@@ -1,14 +1,16 @@
 # Akash Thattanparambil Raju — akashconnect.com
 
-**Visiting = riding a Christchurch tramway game.** A Three.js dusk city, chase-cam along the rails, AAA HUD (minimap, XP/level, objectives), and mission unlocks for each real stop.
+Simple, readable personal site. First-person story of Akash’s path across New Zealand.
 
-## Story (facts only)
-Ara logistics → Distinction Hotel → Nelson caregiver (flew) → Christchurch caregiver → IDEA Services → Te Whare Ngakau Trust (employer name only) → Kaikōura (now) → Work and Income Case Manager Christchurch (soon) → Employment Case Manager / leadership (ambition).
+## Path (facts)
+Ara logistics → Distinction Hotel (kitchen / front office) → Nelson caregiver → Christchurch caregiver → IDEA Services → Te Whare Ngakau Trust → Kaikōura (now) → Work and Income Case Manager, Christchurch (soon) → Employment Case Manager + leadership ahead.
 
-Private enquiry via FormSubmit (email not public). Coral dusk palette from Instagram reel `DTklTOtiGN0`.
+Includes COVID-19 Response Recognition Award (New Zealand Government).
 
-## Run
+Private enquiry via FormSubmit (email not shown publicly).
+
+## Run locally
 ```bash
 python3 -m http.server 5173
 ```
-Open http://localhost:5173 — modules + Three.js require a local server (not `file://`).
+Open http://localhost:5173
