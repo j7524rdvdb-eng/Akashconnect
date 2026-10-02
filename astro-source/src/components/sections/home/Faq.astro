@@ -1,0 +1,27 @@
+---
+import Container from "../../elements/Container.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+import Heading from "../../elements/Heading.astro";
+import Dropdown from "../../elements/Dropdown.astro";
+
+const faq = [
+    { title: "Where are you based?", text: "I am in Kaikōura now, and relocating to Christchurch soon for a Case Manager role at Work and Income." },
+    { title: "What is your current direction?", text: "Near term: Case Manager at Work and Income in Christchurch. Longer term: Employment Case Manager roles and leadership. Employment Case Manager is an ambition — not my current job title." },
+    { title: "What kind of work have you done?", text: "Hospitality at Distinction Hotel (kitchen then front office), caregiving in Nelson and Christchurch, and support work with IDEA Services and Te Whare Ngakau Trust." },
+    { title: "How can employers reach you?", text: "Use the private enquiry form on the Contact page. My email is not listed publicly on this website." },
+]
+---
+
+<Container variant={'md'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">FAQ</Heading>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {
+                faq.map((q, index) => (
+                    <Dropdown title={`${index + 1}. ${q.title}`} text={q.text} />
+                ))
+            }
+        </Container>
+        <ContainerBottom />
+    </div>
+</Container>

@@ -1,0 +1,29 @@
+---
+import Container from "../../elements/Container.astro"
+import Text from "../../elements/Text.astro"
+import Heading from "../../elements/Heading.astro"
+import Link from "../../elements/Link.astro"
+---
+
+<Container variant={"xl"} class="flex flex-col gap-8 min-h-[80vh] justify-center">
+    <Text variant={'xl'} class="text-base-900 lg:max-w-2/3 md:max-w-3/4 w-full">I came to New Zealand to study logistics, then built my career through hospitality, caregiving, and support work — and I am heading next into case management.</Text>
+    <Container class="flex md:flex-row flex-col gap-8 items-start">
+        <Container class="md:flex-2 flex flex-col items-start gap-4">
+            <Link variant={'button'} href="/direction">Open to the right next step</Link>
+            <Heading tagName="h1" tagSize="h1">Akash Thattanparambil Raju</Heading>
+            <Text variant={'md'} class="text-base-800">Kaikōura now · Case Manager at Work and Income · Christchurch soon</Text>
+            <div class="flex flex-wrap gap-3 mt-4">
+                <Link variant={'button'} href="/journey">See my journey</Link>
+                <Link variant={'button'} href="/experience">View experience</Link>
+                <Link variant={'button'} href="/contact">Contact</Link>
+            </div>
+        </Container>
+        <Container class="flex-1 flex flex-col gap-4 border-2 border-base-900 p-6 text-base-900">
+            <Text variant={'md'}>At a glance</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>6+</strong> years across support &amp; service roles</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>NZ Government</strong> — COVID-19 Response Recognition Award</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>Next</strong> — Case Manager · Work and Income · Christchurch</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>Ambition</strong> — Employment Case Manager &amp; leadership</Text>
+        </Container>
+    </Container>
+</Container>

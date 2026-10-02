@@ -1,0 +1,23 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+---
+
+<Container variant={'xl'}>
+    <Heading tagName="h1" tagSize="h1" class="text-center">About</Heading>
+    <div class="flex md:flex-row flex-col gap-16 md:items-start">
+        <div class="flex-1 flex flex-col gap-7 text-base-900">
+            <Text variant={'xl'}>My story, in plain words. First and foremost, I work with people — carefully, calmly, and with accurate records.</Text>
+            <Text variant={'sm'}>I am Akash Thattanparambil Raju. I came to New Zealand to complete a Graduate Diploma in Supply Chain &amp; Logistics at Ara Institute of Canterbury. From there I took on kitchen and front-office work at Distinction Hotel in Christchurch, then moved into caregiving — first in Nelson, then back in Christchurch — and into support work with IDEA Services and Te Whare Ngakau Trust.</Text>
+            <Text variant={'sm'}>Each role taught me how to listen carefully, keep accurate records, stay calm under pressure, and help people take the next practical step. That is the thread that runs through everything I do.</Text>
+            <Text variant={'sm'}>I am based in Kaikōura now and will soon return to Christchurch as a Case Manager at Work and Income. Longer term, I want to work as an Employment Case Manager and grow into leadership.</Text>
+        </div>
+        <div class="flex-1 flex flex-col gap-4 border-2 border-base-900 p-6 text-base-900">
+            <Text variant={'md'}>What matters in my work</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>People first</strong> — dignity, clear communication, practical next steps.</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>Accurate records</strong> — compliant notes, careful file work, follow-through.</Text>
+            <Text variant={'sm'} class="text-base-900"><strong>Steady under pressure</strong> — calm decisions when priorities shift.</Text>
+        </div>
+    </div>
+</Container>

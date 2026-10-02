@@ -1,0 +1,35 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+import Link from "../../elements/Link.astro";
+---
+
+<Container variant={'xl'} class="text-center text-base-900 flex flex-col items-center">
+    <Heading tagName="h1" tagSize="h1">Direction</Heading>
+    <div class="max-w-3xl flex flex-col gap-4 mb-10">
+        <Text variant={'xl'}>Where I am going</Text>
+        <Text variant={'sm'}>Clear next steps — and a longer aim toward employment-focused leadership.</Text>
+    </div>
+</Container>
+<Container variant={'xl'}>
+    <div class="flex lg:flex-row flex-col gap-10">
+        <div class="flex-1 flex flex-col gap-6 text-base-900">
+            <Text variant={'md'}>Near term</Text>
+            <Heading tagName="h2" tagSize="h4">Case Manager · Work and Income · Christchurch</Heading>
+            <Text variant={'sm'}>I am relocating from Kaikōura to Christchurch soon to take up a Case Manager role at Work and Income. That move puts me back in the city where my New Zealand career began.</Text>
+            <Text variant={'md'} class="mt-4">Longer term</Text>
+            <Heading tagName="h2" tagSize="h4">Employment Case Manager &amp; leadership</Heading>
+            <Text variant={'sm'}>After working as a Case Manager, my ambition is to work as an Employment Case Manager, and to grow into leadership roles. Employment Case Manager is a future aim — not my current title.</Text>
+            <Text variant={'sm'}>I am open to employment-focused roles that put people into work, build capability, and let me take on more responsibility over time.</Text>
+        </div>
+        <div class="flex-1 border-2 border-base-900 p-6 flex flex-col gap-4 text-base-900">
+            <Text variant={'md'}>Open to</Text>
+            <Text variant={'sm'} class="text-base-900">Employment case management</Text>
+            <Text variant={'sm'} class="text-base-900">Service coordination</Text>
+            <Text variant={'sm'} class="text-base-900">Team leadership pathways</Text>
+            <Text variant={'sm'} class="text-base-900">Roles based in or around Christchurch</Text>
+            <Link variant={'button'} href="/contact" class="mt-4 self-start">Talk about a role</Link>
+        </div>
+    </div>
+</Container>

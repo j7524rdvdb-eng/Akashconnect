@@ -1,0 +1,36 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+import ResumeDropdown from "../../elements/ResumeDropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+const steps = [
+  { title: "Ara Institute of Canterbury", place: "Study · Christchurch", period: "Graduate Diploma", text: "Graduate Diploma in Supply Chain & Logistics — the reason I came to New Zealand." },
+  { title: "Distinction Hotel", place: "Hospitality · Christchurch", period: "Kitchen → Front office", text: "Started as a kitchen hand, then moved into front office — guest service, records, and a fast-paced team environment." },
+  { title: "Caregiver · Nelson", place: "Care · Nelson", period: "Relocated by flight", text: "Moved to Nelson for caregiver work — hands-on support focused on dignity and daily living." },
+  { title: "Caregiver · Christchurch", place: "Care · Christchurch", period: "Returned", text: "Returned to Christchurch and continued caregiving, building consistency and trust with the people I supported." },
+  { title: "IDEA Services", place: "Support work", period: "Support Worker", text: "Person-centred planning, referrals, accurate confidential records, and helping people toward greater independence." },
+  { title: "Te Whare Ngakau Trust", place: "Support work · Christchurch", period: "Support Worker", text: "Higher-complexity caseload — needs assessment, support plans, and steady coordination with clients and providers." },
+  { title: "Kaikōura", place: "Now", period: "Current base", text: "Based in Kaikōura at present." },
+  { title: "Work and Income · Case Manager", place: "Soon · Christchurch", period: "Next step", text: "Moving back to Christchurch soon as a Case Manager at Work and Income." },
+]
+---
+
+<Container variant={'xl'} class="text-center text-base-900 flex flex-col items-center">
+    <Heading tagName="h1" tagSize="h1">Journey</Heading>
+    <div class="max-w-3xl flex flex-col gap-4 mb-10">
+        <Text variant={'xl'}>Where I have been</Text>
+        <Text variant={'sm'}>Real places and employers, in order — from study to the next step in Christchurch.</Text>
+    </div>
+</Container>
+<Container variant={'md'}>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {steps.map((i) => (
+                <ResumeDropdown title={i.title} place={i.place} period={i.period} text={i.text} />
+            ))}
+        </Container>
+        <ContainerBottom />
+    </div>
+</Container>

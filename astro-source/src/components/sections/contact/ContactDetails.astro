@@ -1,0 +1,49 @@
+---
+import Container from "../../elements/Container.astro"
+import ContactItem from "./ContactItem.astro"
+import Text from "../../elements/Text.astro"
+---
+<Container variant={'md'} class="gap-10">
+    <div class="flex lg:flex-row flex-col gap-8 text-base-900">
+        <ContactItem title="Location" contact="Kaikōura now · relocating to Christchurch, New Zealand" />
+        <ContactItem title="Availability" contact="Open to employment-focused and leadership conversations" />
+    </div>
+
+    <div class="border-3 border-base-900 p-6 flex flex-col gap-4 text-base-900">
+        <Text variant={'lg'}>Private enquiry</Text>
+        <Text variant={'sm'}>Your message is sent privately. No email address is shown on this page.</Text>
+        <form id="enquiry-form" method="POST" class="flex flex-col gap-4">
+            <input type="hidden" name="_subject" value="Akashconnect employer enquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+            <label class="flex flex-col gap-1">
+                <Text variant={'md'}>Your name</Text>
+                <input required name="name" type="text" class="bg-transparent border-2 border-base-900 p-3 font-mono text-base-900" />
+            </label>
+            <label class="flex flex-col gap-1">
+                <Text variant={'md'}>Your email</Text>
+                <input required name="email" type="email" class="bg-transparent border-2 border-base-900 p-3 font-mono text-base-900" />
+            </label>
+            <label class="flex flex-col gap-1">
+                <Text variant={'md'}>Organisation</Text>
+                <input name="organisation" type="text" class="bg-transparent border-2 border-base-900 p-3 font-mono text-base-900" />
+            </label>
+            <label class="flex flex-col gap-1">
+                <Text variant={'md'}>Message</Text>
+                <textarea required name="message" rows="5" class="bg-transparent border-2 border-base-900 p-3 font-mono text-base-900"></textarea>
+            </label>
+            <button type="submit" class="font-grunge px-6 py-2 border-2 border-base-900 hover:bg-base-900 hover:text-base-100 text-24 uppercase tracking-wide text-base-900 self-start cursor-pointer">
+                Send enquiry
+            </button>
+        </form>
+    </div>
+</Container>
+
+<script>
+  const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+  if (form) {
+    const dest = atob("YWthc2h0aGF0dGFucGFyYW1iaWxAZ21haWwuY29t");
+    form.setAttribute("action", "https://formsubmit.co/" + dest);
+  }
+</script>

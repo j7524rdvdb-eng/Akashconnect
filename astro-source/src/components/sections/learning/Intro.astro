@@ -1,0 +1,32 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+import ResumeDropdown from "../../elements/ResumeDropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+const items = [
+  { title: "Graduate Diploma in Supply Chain & Logistics (Level 7)", place: "Ara Institute of Canterbury", period: "2020", text: "Planning, coordination, and systems thinking — the qualification that brought me to New Zealand." },
+  { title: "Certificate in Health and Wellbeing (Level 4)", place: "New Zealand Tertiary College", period: "2024", text: "Supports frontline care and community support practice." },
+  { title: "Bachelor of Commerce — Computer Science & Co-operation", place: "Mahatma Gandhi University, India", period: "2016", text: "Foundational commerce and computing study before moving to New Zealand." },
+  { title: "Additional credentials", place: "Current", period: "Practical", text: "Full New Zealand driver’s licence. First Aid Certificate (available to renew). Languages: Malayalam, Hindi, Tamil, English." },
+]
+---
+
+<Container variant={'xl'} class="text-center text-base-900 flex flex-col items-center">
+    <Heading tagName="h1" tagSize="h1">Learning</Heading>
+    <div class="max-w-3xl flex flex-col gap-4 mb-10">
+        <Text variant={'xl'}>Education &amp; qualifications</Text>
+        <Text variant={'sm'}>Formal study that supports how I plan, coordinate, and work with people.</Text>
+    </div>
+</Container>
+<Container variant={'md'}>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {items.map((i) => (
+                <ResumeDropdown title={i.title} place={i.place} period={i.period} text={i.text} />
+            ))}
+        </Container>
+        <ContainerBottom />
+    </div>
+</Container>

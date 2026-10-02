@@ -1,0 +1,29 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import ResumeDropdown from "../../elements/ResumeDropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+import Link from "../../elements/Link.astro";
+import Text from "../../elements/Text.astro";
+
+const experience = [
+    { title: "Case Manager (soon)", place: "Work and Income · Christchurch", period: "Soon", text: "Relocating to Christchurch to work as a Case Manager at Work and Income." },
+    { title: "Support Worker", place: "Te Whare Ngakau Trust", period: "Christchurch", text: "Higher-complexity caseload — needs assessment, person-centred support plans, coordination with clients and providers, accurate confidential records." },
+    { title: "Support Worker", place: "IDEA Services", period: "New Zealand", text: "Person-centred planning, referrals, trusted relationships, confidential records, support toward greater independence." },
+    { title: "Caregiver", place: "Christchurch & Nelson", period: "Care roles", text: "Direct care focused on dignity and daily living — including relocating to Nelson by flight for caregiver work, then returning to Christchurch." },
+    { title: "Front Office & Kitchen", place: "Distinction Hotel · Christchurch", period: "Hospitality", text: "Started as a kitchen hand, then moved into front office — guest service, payments, accurate guest records, and complaint resolution." },
+]
+---
+
+<Container variant={'md'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">Experience snapshot</Heading>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {experience.map((i) => (
+                <ResumeDropdown title={i.title} place={i.place} period={i.period} text={i.text} />
+            ))}
+        </Container>
+        <ContainerBottom />
+        <Text variant={'sm'} class="text-base-900 text-center"><Link variant={'inline'} href="/experience">Full experience page</Link></Text>
+    </div>
+</Container>

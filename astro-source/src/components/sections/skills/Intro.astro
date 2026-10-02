@@ -1,0 +1,33 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+import Dropdown from "../../elements/Dropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+const groups = [
+  { title: "Casework & coordination", text: "Caseload management · Needs assessment · Support planning · Multi-agency coordination · Referrals · Follow-through" },
+  { title: "Records & compliance", text: "Accurate records · Confidentiality · Privacy-aware practice · File readiness · Attention to detail" },
+  { title: "People & communication", text: "Active listening · Clear explanations · Customer service · Calm under pressure · Team collaboration" },
+  { title: "Systems & operations", text: "Systems thinking · Planning & organisation · Process discipline · Full NZ driver licence" },
+  { title: "Languages", text: "Malayalam · Hindi · Tamil · English" },
+]
+---
+
+<Container variant={'xl'} class="text-center text-base-900 flex flex-col items-center">
+    <Heading tagName="h1" tagSize="h1">Skills</Heading>
+    <div class="max-w-3xl flex flex-col gap-4 mb-10">
+        <Text variant={'xl'}>How I work</Text>
+        <Text variant={'sm'}>Practical strengths built across hospitality, caregiving, support work, and case management pathways.</Text>
+    </div>
+</Container>
+<Container variant={'md'}>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {groups.map((g, i) => (
+                <Dropdown title={`${i + 1}. ${g.title}`} text={g.text} />
+            ))}
+        </Container>
+        <ContainerBottom />
+    </div>
+</Container>

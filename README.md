@@ -1,33 +1,20 @@
-# Akash Thattanparambil Raju — akashconnect.com
+# Akashconnect — www.akashconnect.com
 
-Polished multi-page personal portfolio. Desktop-first. Plain language. No game / tram theme.
+Personal portfolio for Akash Thattanparambil Raju.
+
+## Theme
+Built on [ThemeWagon Grunge](https://themewagon.github.io/grunge/) (Astro + Tailwind). Visual theme retained; demo copy replaced with Akash’s content. Malicious payload in upstream `astro.config.mjs` was removed before build.
 
 ## Pages (9)
+Home · About · Journey · Experience · Skills · Learning · Recognition · Direction · Contact
 
-| Page | File |
-|------|------|
-| Home | `index.html` |
-| About | `about.html` |
-| Journey | `journey.html` |
-| Experience | `experience.html` |
-| Skills | `skills.html` |
-| Learning | `learning.html` |
-| Recognition | `recognition.html` |
-| Direction | `direction.html` |
-| Contact | `contact.html` |
-
-## Path (facts)
-
-Ara logistics → Distinction Hotel (kitchen / front office) → Nelson caregiver → Christchurch caregiver → IDEA Services → Te Whare Ngakau Trust → Kaikōura (now) → Work and Income Case Manager, Christchurch (soon) → Employment Case Manager + leadership ahead.
-
-Includes COVID-19 Response Recognition Award (New Zealand Government) — listed as a **fact**, not a fun fact.
-
-Contact page does **not** use public Gmail FormSubmit. Details shared privately on request.
-
-## Run locally
+## Source
+Editable Astro project lives in `astro-source/`. Site root is the static `astro build` output for GitHub Pages (`main` /).
 
 ```bash
-python3 -m http.server 5173
+cd astro-source && npm i && npm run build
+# then copy dist/* to repo root
 ```
 
-Open http://localhost:5173
+## Contact
+Private FormSubmit enquiry form (destination set via `atob` — email not shown in page markup).

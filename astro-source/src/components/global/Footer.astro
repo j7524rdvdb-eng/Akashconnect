@@ -1,0 +1,42 @@
+---
+import Container from "../elements/Container.astro";
+import Heading from "../elements/Heading.astro";
+import Text from "../elements/Text.astro";
+import Link from "../elements/Link.astro";
+
+const navigation = [
+    { title: "Home", href: "/" },
+    { title: "About", href: "/about" },
+    { title: "Journey", href: "/journey" },
+    { title: "Experience", href: "/experience" },
+    { title: "Skills", href: "/skills" },
+    { title: "Learning", href: "/learning" },
+    { title: "Recognition", href: "/recognition" },
+    { title: "Direction", href: "/direction" },
+    { title: "Contact", href: "/contact" }
+]
+---
+
+<Container variant={'xl'} class="mt-32 pb-8">
+    <div class="flex flex-col gap-10 md:flex-row">
+        <div class="flex-1 md:text-left text-center">
+            <Heading tagName="h3" tagSize="h4" class="text-base-900 mb-5">Akash</Heading>
+            <Text variant={'sm'} class="text-base-900">Kaikōura now · relocating to Christchurch, New Zealand</Text>
+            <Text variant={'sm'} class="text-base-900 mt-2">www.akashconnect.com</Text>
+        </div>
+        <div class="flex-1 md:text-right text-center">
+            <Heading tagName="h3" tagSize="h4" class="text-base-900 mb-5">Navigation</Heading>
+            <ul class="columns-2 md:columns-1 gap-4">
+                {
+                    navigation.map((navLink) => (
+                        <li><Link variant={'nav'} href={navLink.href} class="!text-16 md:!text-20">{navLink.title}</Link></li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="flex flex-col text-center mt-10">
+        <Text variant={'sm'} class="text-base-900">Akash Thattanparambil Raju © 2026</Text>
+        <Text variant={'sm'} class="text-base-900">Theme based on <Link variant={'inline'} target="_blank" href="https://themewagon.github.io/grunge/">Grunge</Link> by Jess Gaspar · Distributed by <Link variant={'inline'} target="_blank" href="https://themewagon.com">ThemeWagon</Link></Text>
+    </div>
+</Container>

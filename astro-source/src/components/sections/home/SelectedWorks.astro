@@ -1,0 +1,37 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+import Link from "../../elements/Link.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+const pages = [
+  { title: "About", href: "/about", text: "Who I am and how I work with people." },
+  { title: "Journey", href: "/journey", text: "Study, places, and roles in order." },
+  { title: "Experience", href: "/experience", text: "Roles, employers, and what I delivered." },
+  { title: "Skills", href: "/skills", text: "Casework, coordination, and practical strengths." },
+  { title: "Learning", href: "/learning", text: "Qualifications from New Zealand and India." },
+  { title: "Recognition", href: "/recognition", text: "COVID-19 Response Recognition Award — a fact." },
+  { title: "Direction", href: "/direction", text: "Where I am going next in my career." },
+  { title: "Contact", href: "/contact", text: "Private employer enquiry form." },
+]
+---
+
+<Container variant={'xl'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">Explore</Heading>
+    <Text variant={'sm'} class="text-base-900 text-center mb-8">Nine pages, written in plain language — desktop-first and easy to read.</Text>
+    <div class="flex flex-col gap-4">
+        <Container class="grid md:grid-cols-2 gap-4 p-6 border-3 border-base-900">
+            {
+                pages.map((p, i) => (
+                    <div class="flex flex-col gap-2 border-2 border-base-900 p-4">
+                        <Text variant={'md'}>{i + 1}. {p.title}</Text>
+                        <Text variant={'sm'} class="text-base-900">{p.text}</Text>
+                        <Link variant={'inline'} href={p.href}>Open {p.title}</Link>
+                    </div>
+                ))
+            }
+        </Container>
+        <ContainerBottom />
+    </div>
+</Container>

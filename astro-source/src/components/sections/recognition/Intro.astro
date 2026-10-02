@@ -1,0 +1,22 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Text from "../../elements/Text.astro";
+---
+
+<Container variant={'xl'} class="text-center text-base-900 flex flex-col items-center">
+    <Heading tagName="h1" tagSize="h1">Recognition</Heading>
+    <div class="max-w-3xl flex flex-col gap-4 mb-10">
+        <Text variant={'xl'}>Awards and acknowledgement</Text>
+        <Text variant={'sm'}>Recognised contribution during New Zealand’s COVID-19 response.</Text>
+    </div>
+</Container>
+<Container variant={'md'}>
+    <div class="border-3 border-base-900 p-8 flex flex-col gap-4 text-base-900 text-left">
+        <Text variant={'md'}>Fact</Text>
+        <Heading tagName="h2" tagSize="h4">COVID-19 Response Recognition Award</Heading>
+        <Text variant={'md'}>New Zealand Government</Text>
+        <Text variant={'sm'}>I received the COVID-19 Response Recognition Award from the New Zealand Government for contribution during the pandemic response.</Text>
+        <Text variant={'sm'}>This sits alongside my professional path in hospitality, caregiving, and support work — and reflects service during a period of national need.</Text>
+    </div>
+</Container>

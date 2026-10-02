@@ -1,0 +1,62 @@
+---
+import Link from "../elements/Link.astro";
+
+const navLinks = [
+    { title: "Home", href: "/" },
+    { title: "About", href: "/about" },
+    { title: "Journey", href: "/journey" },
+    { title: "Experience", href: "/experience" },
+    { title: "Skills", href: "/skills" },
+    { title: "Learning", href: "/learning" },
+    { title: "Recognition", href: "/recognition" },
+    { title: "Direction", href: "/direction" },
+    { title: "Contact", href: "/contact" }
+]
+---
+
+<nav class="flex justify-end py-6 fixed top-0 right-4 left-0 z-50">
+    <!-- Desktop Nav -->
+    <ul class="hidden lg:flex flex-wrap justify-end gap-x-5 gap-y-2 max-w-[70%]">
+        {
+            navLinks.map((link, index) => (
+                <li>
+                    <Link href={link.href} variant={'nav'} class="!text-16 md:!text-20">{index + 1}. {link.title}</Link>
+                </li>
+            ))
+        }
+    </ul>
+    <!-- Tablet / Mobile Nav -->
+    <div class="lg:hidden">
+        <button id="open-nav" aria-label="Open Navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#ffffff" d="m9.5 16.5l7-4.5l-7-4.5v9ZM12 22q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+        </button>
+        <div class="hidden fixed inset-0 bg-base-100 z-50" id="mobile-nav">
+            <div class="flex flex-col items-center justify-center h-full overflow-y-auto">
+                <button id="close-nav" aria-label="Close Navigation" class="absolute top-6 right-6 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#ffffff" d="M9 16h2V8H9v8Zm4 0h2V8h-2v8Zm-1 6q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Zm0-2q3.35 0 5.675-2.325T20 12q0-3.35-2.325-5.675T12 4Q8.65 4 6.325 6.325T4 12q0 3.35 2.325 5.675T12 20Zm0-8Z"/></svg>
+                </button>
+                <ul class="flex flex-col p-6 gap-4 text-center">
+                    {
+                        navLinks.map((link, index) => (
+                            <li><Link href={link.href} variant={'nav'}>{index + 1}. {link.title}</Link></li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const mobileNav = document.querySelector('#mobile-nav') as HTMLElement;
+    const openBtn = document.querySelector('#open-nav') as HTMLButtonElement;
+    const closeBtn = document.querySelector('#close-nav') as HTMLButtonElement;
+
+    openBtn?.addEventListener("click", () => {
+        mobileNav?.classList.remove('hidden');
+    })
+
+    closeBtn?.addEventListener("click", () => {
+        mobileNav?.classList.add('hidden');
+    })
+</script>

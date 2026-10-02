@@ -1,0 +1,51 @@
+---
+import { Font } from "astro:assets";
+import Seo, { type Props as SEOProps } from "../../components/global/Seo.astro";
+
+const SITE_NAME    = "Akash Thattanparambil Raju";
+const TITLE_TMPL   = "%s | Akash T. Raju";
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const DEFAULT_OG   = new URL(`${base}og-image.png`, Astro.site).href;
+const TWITTER_SITE = "";
+const THEME_COLOR  = "#111111";
+const LOCALE       = "en_NZ";
+
+export interface Props extends SEOProps {
+  headSlot?: boolean;
+}
+
+const {
+  title,
+  description,
+  titleTemplate  = TITLE_TMPL,
+  siteName       = SITE_NAME,
+  ogImage        = DEFAULT_OG,
+  twitterSite    = TWITTER_SITE,
+  themeColor     = THEME_COLOR,
+  locale         = LOCALE,
+  ...seoProps
+} = Astro.props;
+---
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+	<link rel="icon" href={`${base}favicon.ico`} />
+	<link rel="sitemap" href={`${base}sitemap-index.xml`} />
+	<Font cssVariable="--font-grunge" />
+	<Font cssVariable="--font-mono" />
+	<meta name="generator" content={Astro.generator} />
+	<Seo
+      title={title}
+      description={description}
+      titleTemplate={titleTemplate}
+      siteName={siteName}
+      ogImage={ogImage}
+      twitterSite={twitterSite}
+      themeColor={themeColor}
+      locale={locale}
+      {...seoProps}
+    />
+</head>

@@ -1,0 +1,27 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import Dropdown from "../../elements/Dropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+
+const strengths = [
+    { title: "People first", text: "Dignity, clear communication, and practical next steps — developed across caregiving and support work." },
+    { title: "Accurate records", text: "Compliant notes, careful file work, and follow-through under organisational and privacy expectations." },
+    { title: "Steady under pressure", text: "Calm decisions when priorities shift or caseloads rise — from hotel front office to higher-complexity support." },
+    { title: "Systems thinking", text: "Planning and coordination from Graduate Diploma study in supply chain & logistics, applied to real service roles." },
+]
+---
+
+<Container variant={'md'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">How I work</Heading>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {
+                strengths.map((s, index) => (
+                    <Dropdown title={`${index + 1}. ${s.title}`} text={s.text} />
+                ))
+            }
+        </Container>
+        <ContainerBottom />
+    </div>
+</Container>

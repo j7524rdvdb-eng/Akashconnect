@@ -1,0 +1,27 @@
+---
+import Container from "../../elements/Container.astro";
+import Heading from "../../elements/Heading.astro";
+import ResumeDropdown from "../../elements/ResumeDropdown.astro";
+import ContainerBottom from "../../elements/ContainerBottom.astro";
+import Link from "../../elements/Link.astro";
+import Text from "../../elements/Text.astro";
+
+const education = [
+    { title: "Graduate Diploma in Supply Chain & Logistics (Level 7)", place: "Ara Institute of Canterbury", period: "2020", text: "Planning, coordination, and systems thinking — the qualification that brought me to New Zealand." },
+    { title: "Certificate in Health and Wellbeing (Level 4)", place: "New Zealand Tertiary College", period: "2024", text: "Supports frontline care and community support practice." },
+    { title: "Bachelor of Commerce — Computer Science & Co-operation", place: "Mahatma Gandhi University, India", period: "2016", text: "Foundational commerce and computing study before moving to New Zealand." },
+]
+---
+
+<Container variant={'md'}>
+    <Heading tagName="h2" tagSize="h2" class="text-center">Learning</Heading>
+    <div class="flex flex-col gap-4">
+        <Container class="flex flex-col gap-4 p-6 border-3 border-base-900">
+            {education.map((i) => (
+                <ResumeDropdown title={i.title} place={i.place} period={i.period} text={i.text} />
+            ))}
+        </Container>
+        <ContainerBottom />
+        <Text variant={'sm'} class="text-base-900 text-center"><Link variant={'inline'} href="/learning">Full learning page</Link></Text>
+    </div>
+</Container>
