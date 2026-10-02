@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="From Kerala to Canterbury — my story as a Case Manager at the Ministry of Social Development, New Zealand. Case management today; employment case management tomorrow." />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="From Kerala to Christchurch — my story as a Case Manager at the Ministry of Social Development. Christchurch is the city where that path took shape." />
+  <meta name="theme-color" content="#0a0908" />
   <title>Akash Thattanparambil Raju · Case Manager · Ministry of Social Development</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="letterbox" aria-hidden="true"><span class="letterbox__bar letterbox__bar--top"></span><span class="letterbox__bar letterbox__bar--bottom"></span></div>
   <div class="cursor" id="cursor" aria-hidden="true">
     <div class="cursor__dot"></div>
     <div class="cursor__ring">
@@ -24,6 +25,7 @@
   <header class="nav" id="nav">
     <a href="#hero" class="nav__logo" data-cursor="VIEW">AKASH</a>
     <nav class="nav__links" aria-label="Primary">
+      <a href="#the-city" data-cursor="VIEW">THE CITY</a>
       <a href="#chapter-01" data-cursor="VIEW">WORK</a>
       <a href="#trajectory" data-cursor="VIEW">JOURNEY</a>
       <a href="#chapter-03" data-cursor="VIEW">DIRECTION</a>
@@ -36,6 +38,7 @@
   </header>
 
   <div class="nav-mobile" id="navMobile" hidden>
+    <a href="#the-city">THE CITY</a>
     <a href="#chapter-01">WORK</a>
     <a href="#trajectory">JOURNEY</a>
     <a href="#chapter-03">DIRECTION</a>
@@ -47,30 +50,91 @@
     <!-- 1. CINEMATIC OPENING -->
     <section class="hero" id="hero">
       <div class="hero__atmosphere" aria-hidden="true"></div>
+      <div class="hero__skyline" aria-hidden="true"></div>
       <div class="hero__content">
-        <p class="hero__eyebrow">NEW ZEALAND · FROM KERALA TO CANTERBURY · MY STORY</p>
+        <p class="hero__eyebrow">CHRISTCHURCH · THE CITY · FROM KERALA</p>
         <h1 class="hero__name">AKASH RAJU</h1>
         <p class="hero__fullname">Akash Thattanparambil Raju</p>
         <p class="hero__sub">
-          I am a Case Manager at the Ministry of Social Development. My path ran from Kerala to Canterbury — through hospitality, aged care, and community support — and it still shapes how I work with people. This is that story: case management today, with a long-term focus on helping people move toward sustainable employment.
+          I am a Case Manager at the Ministry of Social Development. My path ran from Kerala to Christchurch — the city that became home — through hospitality, aged care, and community support. This is that story, told from here.
         </p>
       </div>
-      <a href="#transition" class="hero__scroll" data-cursor="VIEW">SCROLL TO EXPLORE ↓</a>
+      <a href="#the-city" class="hero__scroll" data-cursor="VIEW">ENTER THE CITY ↓</a>
     </section>
 
-    <!-- 2. CINEMATIC TRANSITION -->
-    <section class="transition-words" id="transition" aria-label="Cinematic transition">
-      <div class="transition-words__track">
-        <div class="transition-word" data-word="PEOPLE"><span>PEOPLE</span></div>
-        <div class="transition-word" data-word="POLICY"><span>POLICY</span></div>
-        <div class="transition-word" data-word="PROGRESS"><span>PROGRESS</span></div>
+    <!-- 2. THE CITY — CHRISTCHURCH -->
+    <section class="city" id="the-city" aria-label="Christchurch — the city">
+      <div class="city__inner">
+        <p class="chapter__label">00 / THE CITY</p>
+        <h2 class="chapter__heading">
+          <span class="chapter__heading-line">CHRISTCHURCH</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">IS THE CITY.</span>
+        </h2>
+        <p class="city__lead">
+          I did not arrive into a generic New Zealand. I arrived into Christchurch — Ōtautahi — rebuilt streets, the Avon / Ōtākaro cutting through the centre, Port Hills on the skyline, and a city still teaching me how to belong.
+        </p>
+        <p class="city__body">
+          The landmarks below are not places I claim as workplaces. They are the geography of home: the frame around every chapter that follows — from Distinction Hotel in the central city, to aged care and community support across Christchurch, to case management that still sits in this place.
+        </p>
+
+        <div class="city-rail" aria-label="Christchurch places that frame my story">
+          <article class="city-card city-card--media" style="--place:url('../assets/places/cathedral-square.jpg')">
+            <span class="city-card__tag">CENTRE</span>
+            <h3>Cathedral Square</h3>
+            <p>The city’s pulse — and the Cardboard Cathedral nearby, a reminder that Christchurch rebuilds with intention.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/avon-river-te-pae.jpg')">
+            <span class="city-card__tag">RIVER</span>
+            <h3>Avon / Ōtākaro</h3>
+            <p>The river that threads the city. When I need quiet, this is the line I follow through town.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/port-hills.jpg')">
+            <span class="city-card__tag">HORIZON</span>
+            <h3>Port Hills</h3>
+            <p>The ridge that holds the city. On clear evenings the view still feels like arrival.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/new-brighton-pier.jpg')">
+            <span class="city-card__tag">COAST</span>
+            <h3>New Brighton Pier</h3>
+            <p>East toward the Pacific — a long walk when the week has been heavy with other people’s stories.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/hagley-park.jpg')">
+            <span class="city-card__tag">GREEN</span>
+            <h3>Hagley Park</h3>
+            <p>The city’s lungs. Space to think between caseload, study, and the next hard conversation.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/bridge-remembrance.jpg')">
+            <span class="city-card__tag">REBUILD</span>
+            <h3>Rebuilt central city</h3>
+            <p>From Re:START’s temporary laneways to a centre finding its feet again — the city I grew into.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/riverside-market.jpg')">
+            <span class="city-card__tag">WEST</span>
+            <h3>Riccarton</h3>
+            <p>Everyday Christchurch — shops, buses, and the ordinary rhythm of settling in.</p>
+          </article>
+          <article class="city-card city-card--media" style="--place:url('../assets/places/te-pae.jpg')">
+            <span class="city-card__tag">LEARNING</span>
+            <h3>Ara · Canterbury</h3>
+            <p>Where I studied supply chain in 2020 — planning and systems thinking that still shape how I work.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- 3. CHAPTER 01 -->
+    <!-- 3. CINEMATIC TRANSITION -->
+    <section class="transition-words" id="transition" aria-label="Cinematic transition">
+      <div class="transition-words__track">
+        <div class="transition-word" data-word="KERALA"><span>KERALA</span></div>
+        <div class="transition-word" data-word="CHRISTCHURCH"><span>CHRISTCHURCH</span></div>
+        <div class="transition-word" data-word="THE CITY"><span>THE CITY</span></div>
+      </div>
+    </section>
+
+    <!-- 4. CHAPTER 01 -->
     <section class="chapter chapter-01" id="chapter-01">
       <div class="chapter__inner">
-        <p class="chapter__label">01 / CURRENT</p>
+        <p class="chapter__label">01 / CURRENT · CHRISTCHURCH</p>
         <h2 class="chapter__heading">
           <span class="chapter__heading-line">CASE</span>
           <span class="chapter__heading-line chapter__heading-line--serif">MANAGER</span>
@@ -80,24 +144,32 @@
 
         <div class="split">
           <div class="split__media" data-cursor="EXPLORE">
-            <div class="portrait" aria-label="Portrait placeholder — From Kerala to Canterbury">
+            <div class="portrait" aria-label="Portrait placeholder — Christchurch, the city">
               <div class="portrait__mask">
                 <div class="portrait__placeholder">
                   <svg viewBox="0 0 400 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect width="400" height="520" fill="#1a1a1a"/>
-                    <ellipse cx="200" cy="190" rx="72" ry="80" fill="#2a2a2a"/>
-                    <path d="M80 480C80 380 130 320 200 320C270 320 320 380 320 480" fill="#2a2a2a"/>
-                    <line x1="40" y1="40" x2="360" y2="40" stroke="#3a3a3a" stroke-width="1"/>
-                    <line x1="40" y1="480" x2="360" y2="480" stroke="#3a3a3a" stroke-width="1"/>
+                    <rect width="400" height="520" fill="#1a1210"/>
+                    <defs>
+                      <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#c45c4a" stop-opacity="0.35"/>
+                        <stop offset="55%" stop-color="#8a4a5c" stop-opacity="0.25"/>
+                        <stop offset="100%" stop-color="#0a0908" stop-opacity="0.9"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="400" height="520" fill="url(#dusk)"/>
+                    <ellipse cx="200" cy="190" rx="72" ry="80" fill="#2a1e1c"/>
+                    <path d="M80 480C80 380 130 320 200 320C270 320 320 380 320 480" fill="#2a1e1c"/>
+                    <line x1="40" y1="40" x2="360" y2="40" stroke="#3a2a28" stroke-width="1"/>
+                    <line x1="40" y1="480" x2="360" y2="480" stroke="#3a2a28" stroke-width="1"/>
                   </svg>
-                  <span class="portrait__caption">FROM KERALA TO CANTERBURY</span>
+                  <span class="portrait__caption">CHRISTCHURCH · THE CITY</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="split__copy">
             <p class="lead">
-              Today I am a General Case Manager at the Ministry of Social Development — a role I began in November 2025.
+              Today I am a General Case Manager at the Ministry of Social Development — a role I began in November 2025, grounded in Christchurch.
             </p>
             <p>
               I manage a varied caseload, work with agencies and stakeholders, and keep records accurate and compliant. I make decisions carefully against policy, with respect for Te Tiriti o Waitangi and culturally responsive practice.
@@ -106,14 +178,14 @@
               Day to day, I coordinate case files through to resolution, run compliance checks, and prepare defensible files for Reviews of Decision. I schedule meetings across parties, review documents carefully, and work under pressure while adapting to changing priorities.
             </p>
             <p>
-              I embed Te Ao Māori principles and mātauranga Māori in my casework, aligned with Te Tiriti o Waitangi obligations. Before MSD, I worked in community support, aged care coordination, and hotel front-of-house — experience that still shapes how I work with people under pressure.
+              I embed Te Ao Māori principles and mātauranga Māori in my casework, aligned with Te Tiriti o Waitangi obligations. Before MSD, I worked in community support, aged care coordination, and hotel front-of-house across this city — experience that still shapes how I work with people under pressure.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. CINEMATIC DATA MOMENT -->
+    <!-- 5. CINEMATIC DATA MOMENT -->
     <section class="data-moment" id="data-moment" aria-label="Practice principles">
       <div class="data-moment__sticky">
         <div class="data-word" data-word="LISTEN">LISTEN</div>
@@ -125,7 +197,7 @@
       </div>
     </section>
 
-    <!-- 5. CHAPTER 02 -->
+    <!-- 6. CHAPTER 02 -->
     <section class="chapter chapter-02" id="chapter-02">
       <div class="chapter__inner">
         <p class="chapter__label">02 / THE WORK</p>
@@ -135,7 +207,7 @@
           <span class="chapter__heading-line chapter__heading-line--serif">CASES.</span>
         </h2>
         <p class="chapter__statement">
-          For me, effective case management begins with understanding the person behind the circumstances. Hospitality taught me pace and composure. Aged care taught me dignity. Community support taught me to stay with complexity. Public service asks me to hold all of that — and decide carefully.
+          For me, effective case management begins with understanding the person behind the circumstances. Hospitality in Christchurch taught me pace and composure. Aged care taught me dignity. Community support taught me to stay with complexity. Public service asks me to hold all of that — and decide carefully.
         </p>
 
         <div class="flow" id="workFlow" aria-label="Case management flow">
@@ -166,7 +238,7 @@
       </div>
     </section>
 
-    <!-- 6. CHAPTER 03 -->
+    <!-- 7. CHAPTER 03 -->
     <section class="chapter chapter-03" id="chapter-03">
       <div class="chapter__inner">
         <p class="chapter__label">03 / THE DIRECTION</p>
@@ -182,7 +254,7 @@
         </div>
 
         <p class="climax__note">
-          Employment Case Management is where I am heading — not a title I hold today. Today I am a Case Manager (General Case Manager) at the Ministry of Social Development. Ahead of me is a deliberate progression toward work that centres employment pathways and lasting outcomes for the people I support.
+          Employment Case Management is where I am heading — not a title I hold today. Today I am a Case Manager (General Case Manager) at the Ministry of Social Development. Ahead of me is a deliberate progression toward work that centres employment pathways and lasting outcomes for the people I support — still from this city.
         </p>
 
         <div class="direction-grid">
@@ -206,36 +278,36 @@
       </div>
     </section>
 
-    <!-- 7. CAREER TRAJECTORY -->
+    <!-- 8. CAREER TRAJECTORY -->
     <section class="trajectory" id="trajectory" aria-label="Career trajectory">
       <div class="trajectory__pin">
-        <p class="chapter__label trajectory__label">MY JOURNEY · FROM KERALA TO CANTERBURY</p>
+        <p class="chapter__label trajectory__label">MY JOURNEY · KERALA → CHRISTCHURCH</p>
         <div class="trajectory__viewport">
           <div class="trajectory__track" id="trajectoryTrack">
             <article class="traj-stage">
               <span class="traj-stage__year">THE ARC</span>
-              <h3 class="traj-stage__title">KERALA → CANTERBURY</h3>
-              <p class="traj-stage__desc">I brought my early study from India to Aotearoa. Over more than six years in New Zealand I have worked across hospitality, aged care, community support, and now public service.</p>
+              <h3 class="traj-stage__title">KERALA → THE CITY</h3>
+              <p class="traj-stage__desc">I brought my early study from India to Aotearoa — and to Christchurch specifically. Over more than six years in this city I have worked across hospitality, aged care, community support, and now public service.</p>
             </article>
             <article class="traj-stage">
-              <span class="traj-stage__year">2020</span>
+              <span class="traj-stage__year">2020 · CBD</span>
               <h3 class="traj-stage__title">HOSPITALITY</h3>
-              <p class="traj-stage__desc">At Distinction Hotel in Christchurch I started in the kitchen, then moved to front-of-house guest service — learning reliability, composure, and how to stay accurate when the pace is high.</p>
+              <p class="traj-stage__desc">At Distinction Hotel in Christchurch I started in the kitchen, then moved to front-of-house guest service — learning reliability, composure, and how to stay accurate when the pace is high, with the rebuilt central city as the backdrop.</p>
             </article>
             <article class="traj-stage">
               <span class="traj-stage__year">2021 – 2023</span>
               <h3 class="traj-stage__title">AGED CARE</h3>
-              <p class="traj-stage__desc">As Caregiver &amp; Coordinator at Chatswood Retirement Village I learned what dignity looks like in practice — direct care, clinical coordination, and records held to aged care standards.</p>
+              <p class="traj-stage__desc">As Caregiver &amp; Coordinator at Chatswood Retirement Village in Christchurch I learned what dignity looks like in practice — direct care, clinical coordination, and records held to aged care standards.</p>
             </article>
             <article class="traj-stage">
               <span class="traj-stage__year">2023 – 2025</span>
               <h3 class="traj-stage__title">COMMUNITY SUPPORT</h3>
-              <p class="traj-stage__desc">With IDEA Services and Te Whare Ngakau Trust I held person-centred plans, worked with whānau and clinical teams, and coached people toward greater independence — including higher-complexity support.</p>
+              <p class="traj-stage__desc">With IDEA Services and Te Whare Ngakau Trust in Christchurch I held person-centred plans, worked with whānau and clinical teams, and coached people toward greater independence — including higher-complexity support.</p>
             </article>
             <article class="traj-stage">
               <span class="traj-stage__year">NOV 2025</span>
               <h3 class="traj-stage__title">CASE MANAGEMENT</h3>
-              <p class="traj-stage__desc">I stepped into General Case Manager at the Ministry of Social Development — caseload, policy, Te Tiriti-aligned practice, and decisions I can stand behind.</p>
+              <p class="traj-stage__desc">I stepped into General Case Manager at the Ministry of Social Development — caseload, policy, Te Tiriti-aligned practice, and decisions I can stand behind, still rooted in this city.</p>
             </article>
             <article class="traj-stage traj-stage--accent">
               <span class="traj-stage__year">FUTURE</span>
@@ -252,7 +324,7 @@
       </div>
     </section>
 
-    <!-- 8. CHAPTER 04 -->
+    <!-- 9. CHAPTER 04 -->
     <section class="chapter chapter-04" id="chapter-04">
       <div class="chapter__inner">
         <h2 class="chapter__heading chapter__heading--stacked">
@@ -262,7 +334,7 @@
           <span class="chapter__heading-line chapter__heading-line--serif">HOW I WORK.</span>
         </h2>
         <p class="chapter__statement">
-          Over six years across social services, healthcare support, aged care, and hospitality in New Zealand — plus study in supply chain, health and wellbeing, and commerce — each chapter taught me something I still carry into case management.
+          Over six years across social services, healthcare support, aged care, and hospitality in Christchurch — plus study at Ara Institute of Canterbury, health and wellbeing, and commerce in India — each chapter taught me something I still carry into case management.
         </p>
 
         <div class="editorial-cards" aria-label="What each chapter taught me">
@@ -274,22 +346,22 @@
           <article class="editorial-card">
             <span class="editorial-card__num">02</span>
             <h3>COMMUNITY SUPPORT</h3>
-            <p>In community roles I learned to stay with higher-complexity need — person-centred plans, whānau and clinical teams, and coaching people toward independence without losing trust.</p>
+            <p>In community roles across Christchurch I learned to stay with higher-complexity need — person-centred plans, whānau and clinical teams, and coaching people toward independence without losing trust.</p>
           </article>
           <article class="editorial-card">
             <span class="editorial-card__num">03</span>
             <h3>AGED CARE</h3>
-            <p>Aged care taught me that dignity is daily work — coordinating support, working with clinical teams, and keeping records to the standard residents deserve.</p>
+            <p>Aged care in this city taught me that dignity is daily work — coordinating support, working with clinical teams, and keeping records to the standard residents deserve.</p>
           </article>
           <article class="editorial-card">
             <span class="editorial-card__num">04</span>
             <h3>HOSPITALITY</h3>
-            <p>Hospitality taught me composure under pace — high-volume enquiries, accurate records, and resolving complaints while the queue keeps moving.</p>
+            <p>Hospitality in Christchurch’s central city taught me composure under pace — high-volume enquiries, accurate records, and resolving complaints while the queue keeps moving.</p>
           </article>
         </div>
 
         <div class="roles" aria-label="Professional experience">
-          <p class="chapter__label roles__label">THE CHAPTERS</p>
+          <p class="chapter__label roles__label">THE CHAPTERS · IN THIS CITY</p>
 
           <article class="role-card">
             <span class="role-card__dates">Nov 2025 – Present</span>
@@ -298,31 +370,31 @@
           </article>
 
           <article class="role-card">
-            <span class="role-card__dates">May 2024 – Nov 2025</span>
+            <span class="role-card__dates">May 2024 – Nov 2025 · Christchurch</span>
             <h3 class="role-card__title">Support Worker · Te Whare Ngakau Trust, Christchurch</h3>
             <p class="role-card__body">I held a higher-complexity caseload with intensive client support needs. I assessed needs, developed person-centred support plans, and built trusted relationships with clients, whānau, clinical teams, and external providers. I kept confidential records to policy, and coached clients transitioning toward independence.</p>
           </article>
 
           <article class="role-card">
-            <span class="role-card__dates">Apr 2023 – Oct 2025</span>
+            <span class="role-card__dates">Apr 2023 – Oct 2025 · New Zealand</span>
             <h3 class="role-card__title">Support Worker · IDEA Services, New Zealand</h3>
             <p class="role-card__body">I assessed client needs and developed person-centred plans, including referrals to specialist services. I maintained relationships with clients, whānau, clinical teams, and providers. I kept accurate confidential records under organisational policy and privacy legislation, and supported people moving toward greater independence.</p>
           </article>
 
           <article class="role-card">
-            <span class="role-card__dates">2021 – 2023</span>
+            <span class="role-card__dates">2021 – 2023 · Christchurch</span>
             <h3 class="role-card__title">Caregiver &amp; Coordinator · Chatswood Retirement Village, Christchurch</h3>
             <p class="role-card__body">I provided direct care and coordinated support for residents, with a focus on dignity and quality of life. I worked with clinical teams and external providers for seamless delivery, and maintained resident records to aged care regulatory standards.</p>
           </article>
 
           <article class="role-card">
-            <span class="role-card__dates">Sep 2020 – Aug 2021</span>
+            <span class="role-card__dates">Sep 2020 – Aug 2021 · Christchurch CBD</span>
             <h3 class="role-card__title">Front Office Guest Service Associate · Distinction Hotel, Christchurch</h3>
             <p class="role-card__body">I managed high-volume guest enquiries and financial transactions. I processed payments, kept accurate guest records, resolved complaints, and delivered customer service in a fast-paced front-of-house environment.</p>
           </article>
 
           <article class="role-card">
-            <span class="role-card__dates">Jun 2020 – Aug 2020</span>
+            <span class="role-card__dates">Jun 2020 – Aug 2020 · Christchurch CBD</span>
             <h3 class="role-card__title">Kitchen Hand · Distinction Hotel, Christchurch</h3>
             <p class="role-card__body">I supported kitchen operations, cleanliness, and efficiency standards — building the reliability and work ethic that still sit underneath everything I do.</p>
           </article>
@@ -330,7 +402,7 @@
       </div>
     </section>
 
-    <!-- 9. INTERACTIVE CASE STUDIES -->
+    <!-- 10. INTERACTIVE CASE STUDIES -->
     <section class="case-studies" id="case-studies">
       <div class="chapter__inner">
         <p class="chapter__label">HOW I THINK</p>
@@ -379,7 +451,7 @@
       </div>
     </section>
 
-    <!-- 10. CHAPTER 05 -->
+    <!-- 11. CHAPTER 05 -->
     <section class="chapter chapter-05" id="chapter-05">
       <div class="chapter__inner">
         <h2 class="chapter__heading">
@@ -387,17 +459,17 @@
           <span class="chapter__heading-line chapter__heading-line--serif">LEARNING.</span>
         </h2>
         <p class="chapter__statement">
-          Formal study has walked beside my work — from commerce in India, to supply chain in Canterbury, to health and wellbeing and te reo on the path into public service.
+          Formal study has walked beside my work — from commerce in India, to supply chain at Ara in Christchurch, to health and wellbeing and te reo on the path into public service.
         </p>
 
         <div class="learning">
           <div class="learning__item">
-            <span class="learning__cat">SUPPLY CHAIN</span>
+            <span class="learning__cat">SUPPLY CHAIN · ARA</span>
             <div class="learning__entries">
               <div class="learning__entry">
                 <h3>Graduate Diploma in Supply Chain &amp; Logistics (Level 7)</h3>
-                <p class="learning__meta">Ara Institute of Canterbury · 2020</p>
-                <p>This gave me planning, coordination, and systems thinking I still apply across later roles.</p>
+                <p class="learning__meta">Ara Institute of Canterbury · Christchurch · 2020</p>
+                <p>This gave me planning, coordination, and systems thinking I still apply across later roles — studied in the city that became home.</p>
               </div>
             </div>
           </div>
@@ -422,12 +494,12 @@
             </div>
           </div>
           <div class="learning__item">
-            <span class="learning__cat">COMMERCE</span>
+            <span class="learning__cat">COMMERCE · INDIA</span>
             <div class="learning__entries">
               <div class="learning__entry">
                 <h3>Bachelor of Commerce — Computer Science &amp; Co-operation</h3>
                 <p class="learning__meta">Mahatma Gandhi University, India · 2016</p>
-                <p>Foundational commerce and computing study before I moved to Aotearoa.</p>
+                <p>Foundational commerce and computing study before I moved to Aotearoa — and to Christchurch.</p>
               </div>
             </div>
           </div>
@@ -461,10 +533,10 @@
     <section class="statement" id="statement" aria-label="Cinematic statement">
       <div class="statement__inner">
         <p class="statement__line" data-line="1">A CAREER IS NOT A TITLE.</p>
-        <p class="statement__line" data-line="2">IT’S A DIRECTION.</p>
+        <p class="statement__line" data-line="2">IT’S A CITY AND A DIRECTION.</p>
         <p class="statement__line statement__line--final" data-line="3">
+          <span>CHRISTCHURCH.</span>
           <span>PEOPLE.</span>
-          <span>EMPLOYMENT.</span>
           <span>IMPACT.</span>
         </p>
       </div>
@@ -478,21 +550,30 @@
           <span class="chapter__heading-line chapter__heading-line--serif">CONNECT.</span>
         </h2>
         <p class="contact__intro">
-          I am based in New Zealand. I am open to conversations about public service, employment support, career development, policy, community, and connecting across cultures. My email address is not listed on this site, but you can send me a private enquiry below.
+          I am based in Christchurch, New Zealand. I am open to conversations about public service, employment support, career development, policy, community, and connecting across cultures. My email address is not listed on this site, but you can send me a private enquiry below.
         </p>
         <form class="contact-form" id="enquiryForm" method="POST" action="#">
-          <input type="hidden" name="_subject" value="Private enquiry via akashconnect.com" />
+          <input type="hidden" name="_subject" value="Employer enquiry via akashconnect.com" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value="https://www.akashconnect.com/#contact" />
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="contact-form__grid">
             <label>
               <span>YOUR NAME</span>
               <input type="text" name="name" autocomplete="name" required />
             </label>
             <label>
-              <span>YOUR EMAIL</span>
+              <span>ORGANISATION</span>
+              <input type="text" name="organisation" autocomplete="organization" />
+            </label>
+            <label>
+              <span>WORK EMAIL</span>
               <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              <span>ROLE OR SUBJECT</span>
+              <input type="text" name="subject_line" />
             </label>
           </div>
           <label>
@@ -507,14 +588,14 @@
         <footer class="site-footer">
           <p class="site-footer__name">AKASH THATTANPARAMBIL RAJU</p>
           <p class="site-footer__role">CASE MANAGER · MINISTRY OF SOCIAL DEVELOPMENT</p>
-          <p class="site-footer__future">FUTURE FOCUS · EMPLOYMENT CASE MANAGEMENT</p>
-          <p class="site-footer__theme">From Kerala to Canterbury · my story</p>
+          <p class="site-footer__future">BASED IN CHRISTCHURCH · THE CITY</p>
+          <p class="site-footer__theme">From Kerala to Christchurch · my story</p>
         </footer>
       </div>
     </section>
   </main>
 
-  <!-- 11. ASK AKASH -->
+  <!-- ASK AKASH -->
   <div class="ask" id="ask">
     <button class="ask__trigger" id="askTrigger" data-cursor="OPEN" aria-expanded="false" aria-controls="askPanel">
       <span class="ask__spark">✦</span> ASK AKASH
@@ -522,11 +603,11 @@
     <div class="ask__panel" id="askPanel" hidden>
       <p class="ask__prompt">What part of my story would you like to explore?</p>
       <div class="ask__buttons">
+        <button type="button" data-target="#the-city">THE CITY</button>
         <button type="button" data-target="#chapter-01">CURRENT ROLE</button>
         <button type="button" data-target="#chapter-04">EXPERIENCE</button>
         <button type="button" data-target="#chapter-03">CAREER DIRECTION</button>
         <button type="button" data-target="#chapter-05">LEARNING</button>
-        <button type="button" data-target="#chapter-03">FUTURE</button>
         <button type="button" data-target="#contact">CONTACT</button>
       </div>
       <button class="ask__close" id="askClose" aria-label="Close">×</button>

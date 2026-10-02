@@ -1,20 +1,26 @@
 /* ==========================================================================
    Akash Raju — Cinematic Portfolio
-   Palette: near-black / charcoal / warm off-white / soft grey + muted teal
+   Reference: Instagram reel DTklTOtiGN0 — warm dusk city / black letterbox
+   Palette: near-black shell / coral–mauve dusk / cream / olive accents
+   City: Christchurch as THE CITY
    ========================================================================== */
 
 :root {
-  --bg: #0a0a0a;
-  --bg-elevated: #111111;
-  --charcoal: #1a1a1a;
-  --charcoal-mid: #242424;
-  --off-white: #f2efe8;
-  --soft-grey: #9a9690;
-  --muted: #6b6762;
-  --line: rgba(242, 239, 232, 0.12);
-  --accent: #5a9ead;
-  --accent-soft: rgba(90, 158, 173, 0.25);
-  --accent-glow: rgba(90, 158, 173, 0.15);
+  --bg: #0a0908;
+  --bg-elevated: #14110f;
+  --charcoal: #1c1614;
+  --charcoal-mid: #2a211e;
+  --off-white: #f3ebe3;
+  --soft-grey: #b5a89c;
+  --muted: #7a6e64;
+  --line: rgba(243, 235, 227, 0.12);
+  --accent: #e07a5f;
+  --accent-deep: #c45c4a;
+  --accent-mauve: #9a5b6e;
+  --accent-soft: rgba(224, 122, 95, 0.28);
+  --accent-glow: rgba(154, 91, 110, 0.18);
+  --olive: #7a8f5c;
+  --olive-soft: rgba(122, 143, 92, 0.35);
 
   --font-display: "Syne", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -378,11 +384,39 @@ button {
   position: absolute;
   inset: -20%;
   background:
-    radial-gradient(ellipse 50% 40% at 30% 40%, rgba(90, 158, 173, 0.08), transparent 60%),
-    radial-gradient(ellipse 40% 50% at 70% 60%, rgba(90, 158, 173, 0.05), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 50% 80%, rgba(242, 239, 232, 0.03), transparent 50%);
-  animation: atmosphereDrift 18s ease-in-out infinite alternate;
+    linear-gradient(160deg, rgba(196, 92, 74, 0.28) 0%, rgba(154, 91, 110, 0.22) 42%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 28% 38%, rgba(224, 122, 95, 0.22), transparent 62%),
+    radial-gradient(ellipse 45% 50% at 78% 55%, rgba(154, 91, 110, 0.18), transparent 58%),
+    radial-gradient(ellipse 70% 40% at 50% 90%, rgba(243, 235, 227, 0.04), transparent 52%);
+  animation: atmosphereDrift 22s ease-in-out infinite alternate;
   pointer-events: none;
+}
+
+.hero__skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28vh;
+  background:
+    linear-gradient(to top, rgba(10, 9, 8, 0.95) 0%, transparent 100%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 18px,
+      rgba(224, 122, 95, 0.08) 18px 20px,
+      transparent 20px 48px,
+      rgba(154, 91, 110, 0.1) 48px 52px
+    );
+  mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: skylinePan 40s linear infinite alternate;
+}
+
+@keyframes skylinePan {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
 }
 
 @keyframes atmosphereDrift {
@@ -413,6 +447,10 @@ button {
   line-height: 1;
   margin-bottom: 0.75rem;
   opacity: 0;
+  background: linear-gradient(120deg, var(--off-white) 20%, var(--accent) 55%, var(--accent-mauve) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero__fullname {
@@ -1465,4 +1503,171 @@ button {
   .chapter__heading-line {
     font-size: clamp(3.5rem, 10vw, 10.5rem);
   }
+}
+
+
+/* ========== LETTERBOX (reel framing) ========== */
+.letterbox {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9500;
+}
+
+.letterbox__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(10px, 1.6vh, 22px);
+  background: #000;
+}
+
+.letterbox__bar--top { top: 0; }
+.letterbox__bar--bottom { bottom: 0; }
+
+@media (max-width: 900px) {
+  .letterbox__bar { height: 8px; }
+}
+
+/* ========== THE CITY ========== */
+.city {
+  position: relative;
+  padding: clamp(4rem, 10vh, 8rem) 1.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(224, 122, 95, 0.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(154, 91, 110, 0.1), transparent 50%),
+    var(--bg);
+}
+
+.city__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.city__lead {
+  max-width: 42rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--off-white);
+  margin: 1.75rem 0 1rem;
+}
+
+.city__body {
+  max-width: 40rem;
+  color: var(--soft-grey);
+  margin-bottom: 2.75rem;
+  font-size: 0.98rem;
+}
+
+.city-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .city-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .city-rail { grid-template-columns: 1fr; }
+}
+
+.city-card {
+  position: relative;
+  padding: 1.35rem 1.25rem 1.5rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  min-height: 9.5rem;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), background 0.35s var(--ease);
+  overflow: hidden;
+}
+
+.city-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-mauve));
+  opacity: 0.85;
+}
+
+.city-card:hover {
+  border-color: rgba(224, 122, 95, 0.45);
+  transform: translateY(-3px);
+  background: #1a1412;
+}
+
+.city-card__tag {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--olive);
+  margin-bottom: 0.65rem;
+}
+
+.city-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.55rem;
+  color: var(--off-white);
+}
+
+.city-card p {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--soft-grey);
+}
+
+.city-card--media {
+  min-height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image:
+    linear-gradient(to top, rgba(10, 9, 8, 0.92) 12%, rgba(10, 9, 8, 0.55) 48%, rgba(196, 92, 74, 0.25) 100%),
+    var(--place);
+  background-size: cover;
+  background-position: center;
+}
+
+.city-card--media h3,
+.city-card--media p {
+  position: relative;
+  z-index: 1;
+}
+
+.city-card--media p {
+  color: rgba(243, 235, 227, 0.82);
+}
+
+
+/* Honeypot */
+.honey {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Olive accents for status / subtle links */
+.nav__contact:hover,
+.hero__scroll:hover {
+  color: var(--olive);
+}
+
+.chapter__heading-line--serif {
+  color: var(--accent);
+}
+
+.climax__word--serif {
+  color: var(--accent);
 }
