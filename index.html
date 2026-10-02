@@ -2,601 +2,198 @@
 <html lang="en-NZ">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Spectator mode — ride the Christchurch tramway with Akash Thattanparambil Raju. Levels unlock experience, skills and qualifications: Ara → Distinction → Nelson → Christchurch → IDEA → Te Whare Ngakau → Kaikōura → Work and Income." />
-  <meta name="theme-color" content="#050505" />
-  <title>Akash · Spectator · Christchurch Tramway</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Ride the Christchurch tramway — a playable Christchurch tramway game of Akash Thattanparambil Raju’s path: Ara → Distinction → Nelson → Christchurch → IDEA → Te Whare Ngakau → Kaikōura → Work and Income." />
+  <meta name="theme-color" content="#0a0608" />
+  <meta property="og:title" content="Akash · Christchurch Tramway" />
+  <meta property="og:description" content="Scroll to ride. Missions unlock experience, skills and qualifications across Christchurch." />
+  <meta property="og:type" content="website" />
+  <title>Akash · Christchurch Tramway</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=game3" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 <body>
-  <!-- Letterbox frame (reel + game HUD) -->
+  <a class="skip" href="#missionPanel">Skip to content</a>
+
+  <!-- BOOT / TITLE -->
+  <div id="boot" class="boot" role="dialog" aria-modal="true" aria-labelledby="bootTitle">
+    <div class="boot__fx" aria-hidden="true"></div>
+    <div class="boot__panel">
+      <p class="boot__eyebrow">PLAYER MODE · CANTERBURY</p>
+      <h1 id="bootTitle" class="boot__title">CHRISTCHURCH<br /><span>TRAMWAY</span></h1>
+      <p class="boot__sub">Board the line. Ride the city. Unlock the path.</p>
+      <p class="boot__player">AKASH THATTANPARAMBIL RAJU</p>
+      <ul class="boot__stats" aria-hidden="true">
+        <li><strong>09</strong> STOPS</li>
+        <li><strong>XP</strong> MISSIONS</li>
+        <li><strong>NZ</strong> BASED</li>
+      </ul>
+      <button type="button" class="boot__start" id="btnStart">▶ START RIDE</button>
+      <p class="boot__hint">Scroll to ride · Click glowing tokens · Find the gold Commendation · M mute</p>
+    </div>
+    <div class="boot__load" id="bootLoad" aria-live="polite">
+      <div class="boot__bar"><i id="bootFill"></i></div>
+      <span id="bootPct">Loading city… 0%</span>
+    </div>
+  </div>
+
+  <!-- 3D WORLD -->
+  <canvas id="world" class="world" aria-hidden="true"></canvas>
+  <div class="world-grade" aria-hidden="true"></div>
   <div class="letterbox" aria-hidden="true">
     <div class="letterbox__bar letterbox__bar--top"></div>
     <div class="letterbox__bar letterbox__bar--bottom"></div>
   </div>
 
-  <!-- SPECTATOR HUD -->
-  <div class="hud" id="gameHud" aria-live="polite">
-    <div class="hud__left">
-      <span class="hud__live"><span class="hud__pulse"></span> LIVE</span>
-      <span class="hud__mode">SPECTATOR</span>
-      <span class="hud__sep">|</span>
-      <span class="hud__map">Christchurch Tramway</span>
-    </div>
-    <div class="hud__center">
-      <span class="hud__level" id="hudLevel">LVL 00</span>
-      <span class="hud__stop" id="hudStop">Board</span>
-    </div>
-    <div class="hud__right">
-      <span class="hud__xp-label">ROUTE</span>
-      <div class="hud__bar" aria-hidden="true">
-        <div class="hud__fill" id="hudProgress"></div>
+  <!-- AAA HUD -->
+  <div class="hud" id="hud" hidden>
+    <header class="hud__top">
+      <div class="hud__left">
+        <span class="hud__live"><i></i> LIVE</span>
+        <span class="hud__mode" id="hudMode">PLAYER</span>
+        <span class="hud__map-name">CHRISTCHURCH · TRAMWAY</span>
       </div>
-      <span class="hud__pct" id="hudPct">0%</span>
+      <div class="hud__center">
+        <div class="hud__level-wrap">
+          <span class="hud__lvl-label">LEVEL</span>
+          <span class="hud__lvl" id="hudLevel">00</span>
+        </div>
+        <div class="hud__xp">
+          <div class="hud__xp-meta">
+            <span id="hudXpLabel">XP 0</span>
+            <span id="hudXpNext">/ 100</span>
+          </div>
+          <div class="hud__xp-bar"><i id="hudXpFill"></i></div>
+        </div>
+      </div>
+      <div class="hud__right">
+        <span class="hud__loot" id="hudLoot" title="Collectibles">◆ 0/6</span>
+        <button type="button" class="hud__btn" id="btnMute" aria-pressed="false" title="Mute (M)">🔊 AUDIO</button>
+        <button type="button" class="hud__btn" id="btnObjectives" aria-expanded="false">OBJECTIVES</button>
+      </div>
+    </header>
+
+    <aside class="hud__objectives" id="objectives" hidden>
+      <p class="hud__obj-title">ACTIVE OBJECTIVES</p>
+      <ul id="objList"></ul>
+    </aside>
+
+    <div class="hud__toast" id="toast" hidden></div>
+
+    <div class="hud__place" id="hudPlace">
+      <span class="hud__place-tag">LOCATION</span>
+      <strong id="hudPlaceName">Port Hills</strong>
+    </div>
+
+    <div class="hud__quest" id="hudQuest">
+      <span class="hud__quest-tag">SIDE QUEST</span>
+      <strong>Find the gold Government Commendation</strong>
+      <p>Click glowing tokens along the ride. The gold one unlocks a fun fact.</p>
+    </div>
+
+    <div class="hud__prompt" id="hudPrompt" hidden>
+      <span id="hudPromptText">PRESS <kbd>E</kbd> OR CLICK · COLLECT</span>
+    </div>
+
+    <div class="hud__bottom">
+      <div class="hud__minimap" aria-label="Route minimap">
+        <canvas id="minimap" width="220" height="120"></canvas>
+        <span class="hud__minimap-label">ROUTE MAP</span>
+      </div>
+      <div class="hud__progress">
+        <div class="hud__progress-meta">
+          <span id="hudStop">BOARDING</span>
+          <span id="hudPct">0%</span>
+        </div>
+        <div class="hud__progress-bar"><i id="hudProgress"></i></div>
+        <p class="hud__scroll-hint" id="scrollHint">SCROLL TO RIDE →</p>
+      </div>
+      <div class="hud__compass" aria-hidden="true">
+        <span>N</span>
+        <div class="hud__compass-ring" id="compassRing"></div>
+      </div>
     </div>
   </div>
 
-  <!-- Level rail (mini-map) -->
-  <nav class="minimap" id="minimap" aria-label="Level map">
-    <a href="#board" data-lvl="0" class="minimap__node is-active" title="Board"><span>00</span></a>
-    <a href="#lvl-01" data-lvl="1" class="minimap__node" title="Ara"><span>01</span></a>
-    <a href="#lvl-02" data-lvl="2" class="minimap__node" title="Distinction"><span>02</span></a>
-    <a href="#lvl-03" data-lvl="3" class="minimap__node" title="Path"><span>03</span></a>
-    <a href="#lvl-04" data-lvl="4" class="minimap__node" title="Kaikōura"><span>04</span></a>
-    <a href="#lvl-05" data-lvl="5" class="minimap__node" title="Next"><span>05</span></a>
-    <a href="#lvl-06" data-lvl="6" class="minimap__node" title="Skills"><span>06</span></a>
-    <a href="#lvl-07" data-lvl="7" class="minimap__node" title="Learn"><span>07</span></a>
-    <a href="#lvl-08" data-lvl="8" class="minimap__node" title="Ahead"><span>08</span></a>
-    <a href="#terminus" data-lvl="9" class="minimap__node" title="Terminus"><span>09</span></a>
-  </nav>
-
-  <header class="topbar">
-    <a class="topbar__brand" href="#board">AKASH<span>·CONNECT</span></a>
-    <nav class="topbar__nav" aria-label="Quick jump">
-      <a href="#lvl-01">Study</a>
-      <a href="#lvl-03">Path</a>
-      <a href="#lvl-04">Now</a>
-      <a href="#lvl-05">Next</a>
-      <a href="#terminus">Enquire</a>
-    </nav>
-    <a class="topbar__cta" href="#terminus">SEND ENQUIRY</a>
-    <button class="topbar__menu" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <div class="drawer" id="drawer" hidden>
-    <a href="#board">00 · Board</a>
-    <a href="#lvl-01">01 · Ara</a>
-    <a href="#lvl-02">02 · Distinction</a>
-    <a href="#lvl-03">03 · Path</a>
-    <a href="#lvl-04">04 · Kaikōura</a>
-    <a href="#lvl-05">05 · Work and Income</a>
-    <a href="#lvl-06">06 · Skills</a>
-    <a href="#lvl-07">07 · Learn</a>
-    <a href="#lvl-08">08 · Ahead</a>
-    <a href="#terminus">09 · Enquire</a>
-  </div>
-
-  <main id="ride">
-    <!-- LVL 00 — BOARD -->
-    <section class="stage stop" id="board" data-stop="Board · Port Hills" data-level="00" data-title="Board">
-      <div class="stage__world" id="cityWorld" aria-label="Christchurch city world">
-        <div class="world-poly" aria-hidden="true">
-          <svg class="world-poly__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#f4a07a"/>
-                <stop offset="45%" stop-color="#c96b5a"/>
-                <stop offset="100%" stop-color="#6b3a3a"/>
-              </linearGradient>
-              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8a4a3e"/>
-                <stop offset="100%" stop-color="#3a221c"/>
-              </linearGradient>
-            </defs>
-            <rect width="1600" height="900" fill="url(#sky)"/>
-            <path d="M0 520 L180 460 L340 500 L520 430 L720 490 L920 420 L1120 480 L1320 440 L1600 500 L1600 900 L0 900 Z" fill="#7a4540" opacity=".55"/>
-            <path d="M0 560 L220 510 L400 545 L600 480 L820 540 L1040 490 L1280 530 L1600 500 L1600 900 L0 900 Z" fill="#5e322e" opacity=".7"/>
-            <g fill="#4a2a28" opacity=".85">
-              <rect x="80" y="380" width="70" height="220"/>
-              <rect x="160" y="340" width="90" height="260"/>
-              <rect x="270" y="400" width="55" height="200"/>
-              <rect x="1180" y="360" width="80" height="240"/>
-              <rect x="1280" y="320" width="100" height="280"/>
-              <rect x="1400" y="390" width="70" height="210"/>
-              <rect x="1480" y="350" width="60" height="250"/>
-            </g>
-            <g fill="#3a201e">
-              <rect x="420" y="420" width="60" height="180"/>
-              <rect x="500" y="360" width="110" height="240"/>
-              <rect x="980" y="400" width="70" height="200"/>
-              <rect x="1060" y="340" width="95" height="260"/>
-            </g>
-            <g fill="#2a1614">
-              <path d="M560 620 Q700 480 840 620 L840 680 L560 680 Z"/>
-              <path d="M620 620 Q700 540 780 620" fill="none" stroke="#c96b5a" stroke-width="6"/>
-              <ellipse cx="660" cy="640" rx="40" ry="28" fill="#6b3a3a"/>
-              <ellipse cx="740" cy="640" rx="40" ry="28" fill="#6b3a3a"/>
-              <ellipse cx="700" cy="640" rx="36" ry="24" fill="#6b3a3a"/>
-            </g>
-            <rect y="640" width="1600" height="260" fill="url(#ground)"/>
-            <path d="M720 640 L640 900 L960 900 L840 640 Z" fill="#2a1816" opacity=".9"/>
-            <path d="M780 640 L790 900" stroke="#c96b5a" stroke-width="3" opacity=".35" stroke-dasharray="18 22"/>
-            <g transform="translate(700 700)" fill="#1a1010">
-              <rect x="0" y="0" width="120" height="36" rx="6"/>
-              <rect x="10" y="-18" width="28" height="20" rx="3" fill="#c96b5a"/>
-              <rect x="44" y="-18" width="28" height="20" rx="3" fill="#c96b5a"/>
-              <rect x="78" y="-18" width="28" height="20" rx="3" fill="#c96b5a"/>
-              <circle cx="24" cy="38" r="8" fill="#3a221c"/>
-              <circle cx="96" cy="38" r="8" fill="#3a221c"/>
-            </g>
-          </svg>
+  <!-- MISSION OVERLAY (in-world unlocks) -->
+  <section class="mission" id="missionPanel" hidden aria-live="polite">
+    <div class="mission__frame">
+      <div class="mission__media">
+        <img id="missionImg" alt="" />
+        <div class="mission__grade"></div>
+        <div class="mission__corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <span class="mission__badge" id="missionBadge">MISSION UNLOCKED</span>
+      </div>
+      <article class="mission__card">
+        <p class="mission__type" id="missionType">MISSION</p>
+        <h2 id="missionTitle">Title</h2>
+        <p class="mission__meta" id="missionMeta"></p>
+        <p class="mission__body" id="missionBody"></p>
+        <ul class="mission__loot" id="missionLoot"></ul>
+        <div class="mission__xp" id="missionXp">+0 XP</div>
+        <div class="mission__actions">
+          <button type="button" class="mission__continue" id="btnContinue">CONTINUE RIDE →</button>
         </div>
+      </article>
+    </div>
+  </section>
 
-        <div class="world-shots" id="worldShots">
-          <figure class="world-shot is-active" data-place="Port Hills">
-            <img src="assets/places/port-hills.jpg" alt="" width="1600" height="1067" fetchpriority="high" />
-          </figure>
-          <figure class="world-shot" data-place="Cathedral Square">
-            <img src="assets/places/cathedral-square.jpg" alt="" width="1600" height="1067" loading="lazy" />
-          </figure>
-          <figure class="world-shot" data-place="Riverside Market">
-            <img src="assets/places/riverside-market.jpg" alt="" width="1600" height="1067" loading="lazy" />
-          </figure>
-          <figure class="world-shot" data-place="Hagley Park">
-            <img src="assets/places/hagley-park.jpg" alt="" width="1600" height="1067" loading="lazy" />
-          </figure>
-          <figure class="world-shot" data-place="Bridge of Remembrance">
-            <img src="assets/places/bridge-remembrance.jpg" alt="" width="1600" height="1067" loading="lazy" />
-          </figure>
-          <figure class="world-shot" data-place="Kaikōura">
-            <img src="assets/places/kaikoura-coast.jpg" alt="" width="1600" height="1067" loading="lazy" />
-          </figure>
-          <figure class="world-shot" data-place="New Brighton Pier">
-            <img src="assets/places/new-brighton-pier.jpg" alt="" width="1600" height="2400" loading="lazy" />
-          </figure>
-          <figure class="world-shot" data-place="Cardboard Cathedral">
-            <img src="assets/places/cardboard-cathedral.jpg" alt="" width="1600" height="1067" loading="lazy" />
-          </figure>
+  <!-- SCROLL TRACK (drives progress) -->
+  <div id="track" class="track" aria-hidden="true"></div>
+
+  <!-- TERMINUS / CONTACT (final stop) -->
+  <section class="terminus" id="terminus" hidden>
+    <div class="terminus__inner">
+      <p class="terminus__eyebrow">LVL 09 · TERMINUS</p>
+      <h2>End of the line · let’s connect</h2>
+      <p class="terminus__intro">
+        Kaikōura now · returning to Christchurch soon. Open to employment-focused work, case management, and leadership.
+        Employers can send a private enquiry — my email is not listed on this site.
+      </p>
+      <form class="form" id="enquiryForm" method="POST" action="#">
+        <input type="hidden" name="_subject" value="Employer enquiry via akashconnect.com" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://www.akashconnect.com/?sent=1" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="form__row">
+          <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
+          <label>Organisation<input type="text" name="organisation" autocomplete="organization" /></label>
         </div>
-
-        <div class="world-grade" aria-hidden="true"></div>
-        <div class="world-vignette" aria-hidden="true"></div>
-        <div class="world-scan" aria-hidden="true"></div>
-
-        <div class="world-hud">
-          <p class="world-hud__tag">MAP · CHRISTCHURCH</p>
-          <p class="world-hud__place" id="placeLabel">Port Hills</p>
-          <p class="world-hud__ride">SCROLL TO RIDE →</p>
+        <div class="form__row">
+          <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
+          <label>Role or subject<input type="text" name="subject_line" /></label>
         </div>
+        <label>Message<textarea name="message" rows="4" required></textarea></label>
+        <button type="submit" class="form__submit">▶ SEND ENQUIRY</button>
+        <p class="form__sent" id="contactSent" hidden>Thank you. Your enquiry has been sent.</p>
+      </form>
+      <button type="button" class="terminus__back" id="btnBackRide">← RETURN TO RIDE</button>
+      <footer class="foot">
+        <p>From Kerala to Canterbury · Akash Thattanparambil Raju</p>
+        <p>Kaikōura now · Case Manager at Work and Income, Christchurch — soon</p>
+      </footer>
+    </div>
+  </section>
 
-        <div class="world-corners" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
+  <noscript>
+    <div class="noscript">
+      <h1>Akash Thattanparambil Raju</h1>
+      <p>Enable JavaScript to ride the Christchurch tramway experience.</p>
+      <p>Path: Ara → Distinction → Nelson → Christchurch → IDEA → Te Whare Ngakau → Kaikōura → Work and Income.</p>
+    </div>
+  </noscript>
 
-      <aside class="rail" aria-label="Player briefing">
-        <div class="rail__status">
-          <span class="rail__chip rail__chip--live">SPECTATOR</span>
-          <span class="rail__chip">SESSION ACTIVE</span>
-        </div>
-
-        <div class="rail__head">
-          <div class="rail__avatar" aria-hidden="true">A</div>
-          <div>
-            <p class="rail__handle">AKASH THATTANPARAMBIL RAJU</p>
-            <p class="rail__meta">Player · Christchurch hub</p>
-          </div>
-        </div>
-
-        <p class="rail__ticket">MISSION BRIEF · BOARD HERE</p>
-        <h1 class="rail__title">Watch the ride</h1>
-        <p class="rail__role">Kaikōura now · Christchurch next</p>
-        <p class="rail__tag">From Kerala to Canterbury</p>
-
-        <p class="rail__body">
-          You are in spectator mode. Scroll to ride the tramway through Christchurch — the city hub of this story. Each level unlocks a real chapter: study, hospitality, care, support work, Kaikōura now, Work and Income soon.
-        </p>
-        <p class="rail__body">
-          Objective: see how experience, skills and qualifications stack along the route — then enquire at the terminus.
-        </p>
-
-        <ul class="rail__stats" aria-label="Quick stats">
-          <li><strong>09</strong><span>Levels</span></li>
-          <li><strong>NZ</strong><span>Based</span></li>
-          <li><strong>4</strong><span>Languages</span></li>
-        </ul>
-
-        <a class="rail__cta" href="#lvl-01">▶ START SPECTATING</a>
-
-        <div class="rail__langs" aria-label="Languages spoken">
-          <span>Malayalam</span>
-          <span>Hindi</span>
-          <span>Tamil</span>
-          <span>English</span>
-        </div>
-      </aside>
-    </section>
-
-    <!-- LVL 01 — ARA -->
-    <section class="stop level" id="lvl-01" data-stop="Cathedral Square" data-level="01" data-title="Study · Ara" data-shot="1">
-      <div class="level__banner">
-        <span class="level__badge">LVL 01</span>
-        <span class="level__place">Cathedral Square · Christchurch</span>
-        <span class="level__obj">OBJECTIVE · ARRIVE &amp; STUDY</span>
-      </div>
-      <div class="level__split">
-        <div class="level__media">
-          <img src="assets/places/cathedral-square.jpg" alt="Cathedral Square, Christchurch" width="1600" height="1067" loading="lazy" />
-          <div class="level__grade"></div>
-          <div class="level__frame" aria-hidden="true"></div>
-        </div>
-        <article class="mission" data-reveal>
-          <p class="mission__type">MISSION CARD · STUDY</p>
-          <h2>I came here to study</h2>
-          <p class="mission__meta">Ara Institute of Canterbury · logistics</p>
-          <p>I came to New Zealand to study logistics at Ara Institute of Canterbury. Christchurch became the city where my working life took shape — the hub this tramway keeps returning to.</p>
-          <ul class="mission__loot">
-            <li>Graduate Diploma · Supply Chain &amp; Logistics L7</li>
-            <li>City centre footing</li>
-            <li>Canterbury base unlocked</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 02 — DISTINCTION -->
-    <section class="stop level level--flip" id="lvl-02" data-stop="Riverside Market" data-level="02" data-title="Hospitality · Distinction" data-shot="2">
-      <div class="level__banner">
-        <span class="level__badge">LVL 02</span>
-        <span class="level__place">Riverside · Christchurch</span>
-        <span class="level__obj">OBJECTIVE · HOSPITALITY XP</span>
-      </div>
-      <div class="level__split">
-        <div class="level__media">
-          <img src="assets/places/riverside-market.jpg" alt="Riverside Market, Christchurch" width="1600" height="1067" loading="lazy" />
-          <div class="level__grade"></div>
-          <div class="level__frame" aria-hidden="true"></div>
-        </div>
-        <article class="mission" data-reveal>
-          <p class="mission__type">MISSION CARD · HOSPITALITY</p>
-          <h2>Distinction Hotel Christchurch</h2>
-          <p class="mission__meta">Kitchen Hand → Front Office · part-time</p>
-          <p>While building footing in the city, I worked at Distinction Hotel Christchurch — first as a kitchen hand, then in front office. Part-time work that taught pace, reliability, and staying calm when the desk is busy.</p>
-          <ul class="mission__loot">
-            <li>Kitchen operations</li>
-            <li>Front desk · payments &amp; records</li>
-            <li>Pace under pressure</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 03 — PATH (mission deck) -->
-    <section class="stop path-band" id="lvl-03" data-stop="Path · care &amp; support" data-level="03" data-title="Path · Care &amp; Support">
-      <header class="path-band__head">
-        <span class="level__badge">LVL 03</span>
-        <p class="eyebrow">Mission deck</p>
-        <h2>Stops on the path</h2>
-        <p>From Christchurch out to Nelson, back again, into support work — then north to Kaikōura. The city stays the hub.</p>
-      </header>
-
-      <div class="path-band__track" id="pathTrack">
-        <article class="card mission-card" data-reveal data-stop="Nelson">
-          <div class="mission-card__hdr">
-            <span class="mission-card__lvl">M-01</span>
-            <span class="mission-card__status">CLEARED</span>
-          </div>
-          <figure class="card__shot">
-            <img src="assets/places/nelson-city.jpg" alt="Nelson, New Zealand" loading="lazy" width="800" height="600" />
-            <figcaption>Nelson</figcaption>
-          </figure>
-          <div class="card__body">
-            <p class="card__when">After hospitality</p>
-            <h3>Caregiver · Nelson</h3>
-            <p>I flew to Nelson for caregiver work — a real move off the Christchurch line, then back again.</p>
-          </div>
-        </article>
-
-        <article class="card mission-card" data-reveal data-stop="Hagley Park" data-shot="3">
-          <div class="mission-card__hdr">
-            <span class="mission-card__lvl">M-02</span>
-            <span class="mission-card__status">CLEARED</span>
-          </div>
-          <figure class="card__shot">
-            <img src="assets/places/hagley-park.jpg" alt="Hagley Park" loading="lazy" width="800" height="520" />
-            <figcaption>Christchurch</figcaption>
-          </figure>
-          <div class="card__body">
-            <p class="card__when">Return to the city</p>
-            <h3>Caregiver · Christchurch</h3>
-            <p>I came back to Christchurch and worked as a caregiver again — dignity and steady support in the city I call home.</p>
-          </div>
-        </article>
-
-        <article class="card mission-card" data-reveal data-stop="Botanic Gardens">
-          <div class="mission-card__hdr">
-            <span class="mission-card__lvl">M-03</span>
-            <span class="mission-card__status">CLEARED</span>
-          </div>
-          <figure class="card__shot">
-            <img src="assets/places/botanic-gardens.jpg" alt="Christchurch Botanic Gardens" loading="lazy" width="800" height="520" />
-            <figcaption>Christchurch</figcaption>
-          </figure>
-          <div class="card__body">
-            <p class="card__when">Support work</p>
-            <h3>Support Worker · IDEA Services</h3>
-            <p>Person-centred support plans, referrals, and steady relationships with clients, families, clinical teams, and providers.</p>
-          </div>
-        </article>
-
-        <article class="card mission-card" data-reveal data-stop="Avon / Bridge" data-shot="4">
-          <div class="mission-card__hdr">
-            <span class="mission-card__lvl">M-04</span>
-            <span class="mission-card__status">CLEARED</span>
-          </div>
-          <figure class="card__shot">
-            <img src="assets/places/bridge-remembrance.jpg" alt="Bridge of Remembrance" loading="lazy" width="800" height="520" />
-            <figcaption>Christchurch</figcaption>
-          </figure>
-          <div class="card__body">
-            <p class="card__when">Support work</p>
-            <h3>Support Worker · Te Whare Ngakau Trust</h3>
-            <p>Higher-complexity support needs — plans, trusted relationships, confidential records, and coaching toward independence.</p>
-          </div>
-        </article>
-      </div>
-
-      <details class="roles">
-        <summary>FULL LOG · EXPERIENCE TIMETABLE</summary>
-        <article>
-          <p class="roles__when">Soon</p>
-          <h3>Case Manager · Work and Income, Christchurch</h3>
-          <p>I am moving back to Christchurch soon as a Case Manager at Work and Income. That is the next stop on this line — not a title I invent for today.</p>
-        </article>
-        <article>
-          <p class="roles__when">Now</p>
-          <h3>Based in Kaikōura</h3>
-          <p>I moved to Kaikōura and I am there now. From here the tram turns back toward Christchurch and the Work and Income role ahead.</p>
-        </article>
-        <article>
-          <p class="roles__when">Christchurch</p>
-          <h3>Support Worker · Te Whare Ngakau Trust</h3>
-          <p>I held a higher-complexity caseload with intensive client support needs. I assessed needs, developed person-centred support plans, and built trusted relationships with clients, families, clinical teams, and external providers. I kept confidential records to policy, and coached clients transitioning toward independence.</p>
-        </article>
-        <article>
-          <p class="roles__when">New Zealand</p>
-          <h3>Support Worker · IDEA Services</h3>
-          <p>I assessed client needs and developed person-centred plans, including referrals to specialist services. I maintained relationships with clients, families, clinical teams, and providers. I kept accurate confidential records under organisational policy and privacy legislation, and supported people moving toward greater independence.</p>
-        </article>
-        <article>
-          <p class="roles__when">Christchurch</p>
-          <h3>Caregiver · Christchurch</h3>
-          <p>After Nelson, I returned to Christchurch and worked as a caregiver again — direct care with a focus on dignity and quality of life.</p>
-        </article>
-        <article>
-          <p class="roles__when">Nelson</p>
-          <h3>Caregiver · Nelson</h3>
-          <p>I moved to Nelson as a caregiver — I flew there for the role — then later came back to Christchurch.</p>
-        </article>
-        <article>
-          <p class="roles__when">Christchurch</p>
-          <h3>Front Office Guest Service Associate · Distinction Hotel</h3>
-          <p>Part-time. I managed high-volume guest enquiries and financial transactions. I processed payments, kept accurate guest records, resolved complaints, and delivered customer service in a fast-paced front-of-house environment.</p>
-        </article>
-        <article>
-          <p class="roles__when">Christchurch</p>
-          <h3>Kitchen Hand · Distinction Hotel</h3>
-          <p>Part-time. I supported kitchen operations, cleanliness, and efficiency standards — building reliability in a hospitality setting.</p>
-        </article>
-      </details>
-    </section>
-
-    <!-- LVL 04 — KAIKŌURA NOW -->
-    <section class="stop level" id="lvl-04" data-stop="Kaikōura" data-level="04" data-title="Now · Kaikōura" data-shot="5">
-      <div class="level__banner">
-        <span class="level__badge level__badge--now">LVL 04 · NOW</span>
-        <span class="level__place">Kaikōura coast</span>
-        <span class="level__obj">ACTIVE LOCATION</span>
-      </div>
-      <div class="level__split">
-        <div class="level__media">
-          <img src="assets/places/kaikoura-coast.jpg" alt="Kaikōura Peninsula coast" width="1600" height="1067" loading="lazy" />
-          <div class="level__grade"></div>
-          <div class="level__frame" aria-hidden="true"></div>
-        </div>
-        <article class="mission" data-reveal>
-          <p class="mission__type">MISSION CARD · CURRENT STOP</p>
-          <h2>I am in Kaikōura</h2>
-          <p class="mission__meta">Current stop on the line</p>
-          <p>After support work in Christchurch, I moved to Kaikōura. I am here now. This is a real stop on my journey — not a detour I skip past. From here I turn back toward Christchurch.</p>
-          <p class="mission__callout">Kaikōura now. Christchurch next.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 05 — WINZ NEXT -->
-    <section class="stop level level--flip" id="lvl-05" data-stop="Bridge of Remembrance" data-level="05" data-title="Next · Work and Income" data-shot="4">
-      <div class="level__banner">
-        <span class="level__badge level__badge--next">LVL 05 · NEXT</span>
-        <span class="level__place">Returning · Christchurch</span>
-        <span class="level__obj">QUEUED · CASE MANAGER</span>
-      </div>
-      <div class="level__split">
-        <div class="level__media">
-          <img src="assets/places/bridge-remembrance.jpg" alt="Bridge of Remembrance, Christchurch" width="1600" height="1067" loading="lazy" />
-          <div class="level__grade"></div>
-          <div class="level__frame" aria-hidden="true"></div>
-        </div>
-        <article class="mission" data-reveal>
-          <p class="mission__type">MISSION CARD · NEXT LEVEL</p>
-          <h2>Case Manager · Work and Income</h2>
-          <p class="mission__meta">Christchurch · moving back soon</p>
-          <p>I am moving back to Christchurch soon as a Case Manager at Work and Income. The city is the hub — this is the stop I am heading for next.</p>
-          <p>How I work: listen, understand the person’s situation and barriers, weigh options carefully against policy, decide, and set a clear next step.</p>
-          <ul class="mission__flow">
-            <li>Person</li>
-            <li>Circumstances</li>
-            <li>Barriers</li>
-            <li>Options</li>
-            <li>Decision</li>
-            <li>Next step</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 06 — SKILLS -->
-    <section class="stop skills-band" id="lvl-06" data-stop="Skills loadout" data-level="06" data-title="Skills loadout">
-      <header class="path-band__head">
-        <span class="level__badge">LVL 06</span>
-        <p class="eyebrow">Loadout</p>
-        <h2>Skills unlocked</h2>
-        <p>How I show up in the work — the toolkit built across hospitality, care and support.</p>
-      </header>
-      <div class="skills-grid">
-        <article class="skill" data-reveal>
-          <span class="skill__icon">01</span>
-          <h3>Person-centred planning</h3>
-          <p>Assess needs, write clear plans, keep the person at the centre.</p>
-        </article>
-        <article class="skill" data-reveal>
-          <span class="skill__icon">02</span>
-          <h3>Case navigation</h3>
-          <p>Referrals, providers, families, clinical teams — keep the network moving.</p>
-        </article>
-        <article class="skill" data-reveal>
-          <span class="skill__icon">03</span>
-          <h3>Calm under pressure</h3>
-          <p>Front desk pace, kitchen heat, complex support — stay steady.</p>
-        </article>
-        <article class="skill" data-reveal>
-          <span class="skill__icon">04</span>
-          <h3>Records &amp; privacy</h3>
-          <p>Confidential notes to policy. Accurate. On time.</p>
-        </article>
-        <article class="skill" data-reveal>
-          <span class="skill__icon">05</span>
-          <h3>Logistics mindset</h3>
-          <p>Ara training — systems, flow, and the next clear step.</p>
-        </article>
-        <article class="skill" data-reveal>
-          <span class="skill__icon">06</span>
-          <h3>Languages</h3>
-          <p>Malayalam, Hindi, Tamil, English — connect across communities.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 07 — LEARN -->
-    <section class="stop level" id="lvl-07" data-stop="Cardboard Cathedral" data-level="07" data-title="Learn · Quals" data-shot="7">
-      <div class="level__banner">
-        <span class="level__badge">LVL 07</span>
-        <span class="level__place">Cardboard Cathedral · Christchurch</span>
-        <span class="level__obj">OBJECTIVE · QUALIFICATIONS</span>
-      </div>
-      <div class="level__split">
-        <div class="level__media">
-          <img src="assets/places/cardboard-cathedral.jpg" alt="Cardboard Cathedral" width="1600" height="1067" loading="lazy" />
-          <div class="level__grade"></div>
-          <div class="level__frame" aria-hidden="true"></div>
-        </div>
-        <article class="mission" data-reveal>
-          <p class="mission__type">MISSION CARD · LEARN</p>
-          <h2>Study beside the work</h2>
-          <ul class="learn__list">
-            <li>
-              <strong>Graduate Diploma in Supply Chain &amp; Logistics (Level 7)</strong>
-              <span>Ara Institute of Canterbury · 2020</span>
-            </li>
-            <li>
-              <strong>Certificate in Health and Wellbeing (Level 4)</strong>
-              <span>New Zealand Tertiary College · 2024</span>
-            </li>
-            <li>
-              <strong>Bachelor of Commerce — Computer Science &amp; Co-operation</strong>
-              <span>Mahatma Gandhi University, India · 2016</span>
-            </li>
-          </ul>
-          <ul class="learn__certs">
-            <li>COVID-19 Response Recognition Award — New Zealand Government</li>
-            <li>Full New Zealand Driver’s Licence</li>
-            <li>First Aid Certificate (expired March 2026 — available to renew)</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 08 — AHEAD -->
-    <section class="stop level level--flip" id="lvl-08" data-stop="New Brighton Pier" data-level="08" data-title="Ahead · Ambition" data-shot="6">
-      <div class="level__banner">
-        <span class="level__badge">LVL 08</span>
-        <span class="level__place">New Brighton Pier</span>
-        <span class="level__obj">FUTURE BRANCH</span>
-      </div>
-      <div class="level__split">
-        <div class="level__media">
-          <img src="assets/places/new-brighton-pier.jpg" alt="New Brighton Pier" width="1600" height="2400" loading="lazy" />
-          <div class="level__grade"></div>
-          <div class="level__frame" aria-hidden="true"></div>
-        </div>
-        <article class="mission" data-reveal>
-          <p class="mission__type">MISSION CARD · AHEAD</p>
-          <h2>Employment focus · leadership</h2>
-          <p>After case management on this path, my ambition is to work as an Employment Case Manager. That is a direction — not a title I hold today.</p>
-          <p>I am open to employment-focused roles, and I want to move into leadership as well. No closed doors on where that work can happen.</p>
-          <ul class="mission__chips">
-            <li>Employment pathways</li>
-            <li>Employment Case Manager (ambition)</li>
-            <li>Leadership</li>
-            <li>Open to the right role</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- LVL 09 — TERMINUS -->
-    <section class="stop contact" id="terminus" data-stop="Terminus · Enquire" data-level="09" data-title="Terminus">
-      <div class="contact__inner">
-        <span class="level__badge">LVL 09</span>
-        <p class="eyebrow">Terminus</p>
-        <h2>End of the line · let’s connect</h2>
-        <p class="contact__intro">
-          Kaikōura now · returning to Christchurch soon. Open to conversations about employment-focused work, case management, and leadership. Employers can send a private enquiry below — my email address is not listed on this site.
-        </p>
-
-        <form class="form" id="enquiryForm" method="POST" action="#">
-          <input type="hidden" name="_subject" value="Employer enquiry via akashconnect.com" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://www.akashconnect.com/#terminus" />
-          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-          <div class="form__row">
-            <label>Your name<input type="text" name="name" autocomplete="name" required /></label>
-            <label>Organisation<input type="text" name="organisation" autocomplete="organization" /></label>
-          </div>
-          <div class="form__row">
-            <label>Work email<input type="email" name="email" autocomplete="email" required /></label>
-            <label>Role or subject<input type="text" name="subject_line" /></label>
-          </div>
-          <label>Message<textarea name="message" rows="4" required></textarea></label>
-          <button type="submit" class="form__submit">▶ SEND ENQUIRY</button>
-          <p class="form__sent" id="contactSent" hidden>Thank you. Your enquiry has been sent. I will reply to the work email you provided.</p>
-        </form>
-
-        <footer class="foot">
-          <p>SPECTATOR MODE · From Kerala to Canterbury · Akash Thattanparambil Raju</p>
-          <p>Kaikōura now · Case Manager at Work and Income, Christchurch — soon</p>
-        </footer>
-      </div>
-    </section>
-  </main>
-
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js?v=game3"></script>
 </body>
 </html>

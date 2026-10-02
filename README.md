@@ -1,9 +1,14 @@
 # Akash Thattanparambil Raju — akashconnect.com
 
-**Visiting = spectator mode on a Christchurch tramway game.** Scroll is the ride. HUD shows LIVE · SPECTATOR · level · stop · route progress. Mission cards unlock experience, skills, and qualifications.
+**Visiting = riding a Christchurch tramway game.** A Three.js dusk city, chase-cam along the rails, AAA HUD (minimap, XP/level, objectives), and mission unlocks for each real stop.
 
-Visual language: coral dusk city from Instagram reel `DTklTOtiGN0`, black letterbox, crisp game UI (corners, scanlines, minimap, level badges).
+## Story (facts only)
+Ara logistics → Distinction Hotel → Nelson caregiver (flew) → Christchurch caregiver → IDEA Services → Te Whare Ngakau Trust (employer name only) → Kaikōura (now) → Work and Income Case Manager Christchurch (soon) → Employment Case Manager / leadership (ambition).
 
-**Christchurch is THE CITY hub.** Real journey: Ara logistics → Distinction Hotel → Nelson caregiver (flew) → Christchurch caregiver → IDEA Services → Te Whare Ngakau Trust → Kaikōura (now) → Work and Income Case Manager Christchurch (soon) → Employment Case Manager / leadership (ambition, not current title).
+Private enquiry via FormSubmit (email not public). Coral dusk palette from Instagram reel `DTklTOtiGN0`.
 
-Private enquiry via FormSubmit (email not public).
+## Run
+```bash
+python3 -m http.server 5173
+```
+Open http://localhost:5173 — modules + Three.js require a local server (not `file://`).
