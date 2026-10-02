@@ -1,81 +1,527 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="From Kerala to Canterbury — Akash Thattanparambil Raju, Case Manager at the Ministry of Social Development, New Zealand.">
-  <meta name="theme-color" content="#0a0a12">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'; upgrade-insecure-requests">
-  <title>From Kerala to Canterbury · Akash Thattanparambil Raju</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Outfit:wght@300;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="From Kerala to Canterbury — Akash Thattanparambil Raju, Case Manager at the Ministry of Social Development, New Zealand." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Akash Thattanparambil Raju · Case Manager · Ministry of Social Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <div class="atmosphere" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring">
+      <span class="cursor__label"></span>
+    </div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <nav class="nav" aria-label="Primary">
-    <a class="nav-brand" href="index.html">Akash T. Raju</a>
-    <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="journey.html">Journey</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- NAVIGATION -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo" data-cursor="VIEW">AKASH</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#chapter-01" data-cursor="VIEW">WORK</a>
+      <a href="#trajectory" data-cursor="VIEW">JOURNEY</a>
+      <a href="#chapter-03" data-cursor="VIEW">DIRECTION</a>
+      <a href="#chapter-04" data-cursor="VIEW">ABOUT</a>
+    </nav>
+    <a href="#contact" class="nav__contact" data-cursor="OPEN">CONTACT ↗</a>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
 
-  <div class="page">
-    <header class="hero" id="home">
-      <div class="hero-inner">
-        <p class="eyebrow hero-anim">New Zealand</p>
-        <h1 class="hero-name hero-anim">Akash Thattanparambil Raju</h1>
-        <p class="hero-theme hero-anim">From Kerala to Canterbury</p>
-        <p class="hero-pitch hero-anim">
-          Case Manager at the Ministry of Social Development, with experience across social services, healthcare support, aged care, and hospitality.
-        </p>
-        <div class="hero-ctas hero-anim">
-          <a class="btn btn-primary" href="journey.html">View journey</a>
-          <a class="btn btn-ghost" href="contact.html">Contact</a>
-        </div>
-      </div>
-    </header>
-
-    <main id="main">
-      <section class="section today" id="today" aria-labelledby="today-heading">
-        <div class="section-inner today-block">
-          <p class="section-label reveal">Current role</p>
-          <h2 class="section-title reveal" id="today-heading">Today</h2>
-          <p class="today-lead reveal">
-            General Case Manager at the Ministry of Social Development (since November 2025).
-          </p>
-          <p class="today-copy reveal">
-            I manage a varied caseload, work with agencies and stakeholders, and keep records accurate and compliant. Decisions are made carefully against policy, with respect for Te Tiriti o Waitangi and culturally responsive practice.
-          </p>
-          <p class="today-copy reveal reveal-d1">
-            Before MSD, I worked in community support, aged care coordination, and hotel front-of-house — experience that still shapes how I work with people under pressure.
-          </p>
-          <div class="languages reveal" aria-label="Languages spoken">
-            <span class="lang">Malayalam</span>
-            <span class="lang">Hindi</span>
-            <span class="lang">Tamil</span>
-            <span class="lang">English</span>
-          </div>
-          <div class="hero-ctas reveal reveal-d1" style="margin-top: 2.5rem;">
-            <a class="btn btn-primary" href="journey.html">Full experience &amp; qualifications</a>
-            <a class="btn btn-ghost" href="contact.html">Get in touch</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>From Kerala to Canterbury · Akash Thattanparambil Raju</p>
-    </footer>
+  <div class="nav-mobile" id="navMobile" hidden>
+    <a href="#chapter-01">WORK</a>
+    <a href="#trajectory">JOURNEY</a>
+    <a href="#chapter-03">DIRECTION</a>
+    <a href="#chapter-04">ABOUT</a>
+    <a href="#contact">CONTACT ↗</a>
   </div>
 
-  <script src="main.js"></script>
+  <main>
+    <!-- 1. CINEMATIC OPENING -->
+    <section class="hero" id="hero">
+      <div class="hero__atmosphere" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">NEW ZEALAND · FROM KERALA TO CANTERBURY · CASE MANAGEMENT</p>
+        <h1 class="hero__name">AKASH RAJU</h1>
+        <p class="hero__fullname">Akash Thattanparambil Raju</p>
+        <div class="hero__statements">
+          <div class="hero__line hero__line--1">
+            <span class="hero__display">CASE MANAGEMENT</span>
+            <span class="hero__display hero__display--serif">TODAY.</span>
+          </div>
+          <div class="hero__line hero__line--2">
+            <span class="hero__display">EMPLOYMENT</span>
+            <span class="hero__display hero__display--serif">TOMORROW.</span>
+          </div>
+        </div>
+        <p class="hero__sub">
+          Case Manager at the Ministry of Social Development, with experience across social services, healthcare support, aged care, and hospitality — building toward employment-focused practice and lasting outcomes.
+        </p>
+      </div>
+      <a href="#transition" class="hero__scroll" data-cursor="VIEW">SCROLL TO EXPLORE ↓</a>
+    </section>
+
+    <!-- 2. CINEMATIC TRANSITION -->
+    <section class="transition-words" id="transition" aria-label="Cinematic transition">
+      <div class="transition-words__track">
+        <div class="transition-word" data-word="PEOPLE"><span>PEOPLE</span></div>
+        <div class="transition-word" data-word="POLICY"><span>POLICY</span></div>
+        <div class="transition-word" data-word="PROGRESS"><span>PROGRESS</span></div>
+      </div>
+    </section>
+
+    <!-- 3. CHAPTER 01 -->
+    <section class="chapter chapter-01" id="chapter-01">
+      <div class="chapter__inner">
+        <p class="chapter__label">01 / CURRENT</p>
+        <h2 class="chapter__heading">
+          <span class="chapter__heading-line">CASE</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">MANAGER</span>
+        </h2>
+        <p class="chapter__meta">GENERAL CASE MANAGER · MINISTRY OF SOCIAL DEVELOPMENT · NEW ZEALAND</p>
+        <p class="chapter__meta chapter__meta--sub">NOVEMBER 2025 – PRESENT</p>
+
+        <div class="split">
+          <div class="split__media" data-cursor="EXPLORE">
+            <div class="portrait" aria-label="Portrait not published on live site — placeholder">
+              <div class="portrait__mask">
+                <div class="portrait__placeholder">
+                  <svg viewBox="0 0 400 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="400" height="520" fill="#1a1a1a"/>
+                    <ellipse cx="200" cy="190" rx="72" ry="80" fill="#2a2a2a"/>
+                    <path d="M80 480C80 380 130 320 200 320C270 320 320 380 320 480" fill="#2a2a2a"/>
+                    <line x1="40" y1="40" x2="360" y2="40" stroke="#3a3a3a" stroke-width="1"/>
+                    <line x1="40" y1="480" x2="360" y2="480" stroke="#3a3a3a" stroke-width="1"/>
+                  </svg>
+                  <span class="portrait__caption">FROM KERALA TO CANTERBURY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="split__copy">
+            <p class="lead">
+              General Case Manager at the Ministry of Social Development (since November 2025).
+            </p>
+            <p>
+              Akash manages a varied caseload, works with agencies and stakeholders, and keeps records accurate and compliant. Decisions are made carefully against policy, with respect for Te Tiriti o Waitangi and culturally responsive practice.
+            </p>
+            <p>
+              The work includes coordinating case files through to resolution, running compliance checks, and preparing defensible files for Reviews of Decision — scheduling meetings across parties, reviewing documents carefully, and adapting under changing priorities.
+            </p>
+            <p>
+              Casework embeds Te Ao Māori principles and mātauranga Māori, aligned with Te Tiriti o Waitangi obligations. Before MSD, experience in community support, aged care coordination, and hotel front-of-house still shapes how he works with people under pressure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CINEMATIC DATA MOMENT -->
+    <section class="data-moment" id="data-moment" aria-label="Practice principles">
+      <div class="data-moment__sticky">
+        <div class="data-word" data-word="LISTEN">LISTEN</div>
+        <div class="data-word" data-word="UNDERSTAND">UNDERSTAND</div>
+        <div class="data-word" data-word="DECIDE">DECIDE</div>
+        <div class="data-word" data-word="SUPPORT">SUPPORT</div>
+        <div class="data-word" data-word="CONNECT">CONNECT</div>
+        <div class="data-word" data-word="PROGRESS">PROGRESS</div>
+      </div>
+    </section>
+
+    <!-- 5. CHAPTER 02 -->
+    <section class="chapter chapter-02" id="chapter-02">
+      <div class="chapter__inner">
+        <p class="chapter__label">02 / THE WORK</p>
+        <h2 class="chapter__heading chapter__heading--stacked">
+          <span class="chapter__heading-line">PEOPLE</span>
+          <span class="chapter__heading-line">ARE NOT</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">CASES.</span>
+        </h2>
+        <p class="chapter__statement">
+          Effective case management begins with understanding the person behind the circumstances — a practice shaped by frontline social services, aged care, community support, and hospitality.
+        </p>
+
+        <div class="flow" id="workFlow" aria-label="Case management flow">
+          <div class="flow__stage" data-stage="0">
+            <span class="flow__node">PERSON</span>
+          </div>
+          <div class="flow__connector" aria-hidden="true"><span></span></div>
+          <div class="flow__stage" data-stage="1">
+            <span class="flow__node">CIRCUMSTANCES</span>
+          </div>
+          <div class="flow__connector" aria-hidden="true"><span></span></div>
+          <div class="flow__stage" data-stage="2">
+            <span class="flow__node">BARRIERS</span>
+          </div>
+          <div class="flow__connector" aria-hidden="true"><span></span></div>
+          <div class="flow__stage" data-stage="3">
+            <span class="flow__node">OPTIONS</span>
+          </div>
+          <div class="flow__connector" aria-hidden="true"><span></span></div>
+          <div class="flow__stage" data-stage="4">
+            <span class="flow__node">DECISION</span>
+          </div>
+          <div class="flow__connector" aria-hidden="true"><span></span></div>
+          <div class="flow__stage" data-stage="5">
+            <span class="flow__node">NEXT STEP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CHAPTER 03 -->
+    <section class="chapter chapter-03" id="chapter-03">
+      <div class="chapter__inner">
+        <p class="chapter__label">03 / THE DIRECTION</p>
+        <h2 class="chapter__heading">
+          <span class="chapter__heading-line">WHERE</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">I’M GOING.</span>
+        </h2>
+
+        <div class="climax" id="directionClimax">
+          <span class="climax__word">EMPLOYMENT</span>
+          <span class="climax__word climax__word--serif">CASE</span>
+          <span class="climax__word">MANAGEMENT</span>
+        </div>
+
+        <p class="climax__note">
+          Employment Case Management is Akash’s future professional direction — not his current title. Today he is a Case Manager (General Case Manager) at the Ministry of Social Development. The direction ahead is a deliberate progression toward work that centres employment pathways and lasting outcomes.
+        </p>
+
+        <div class="direction-grid">
+          <article class="direction-card">
+            <h3>Employment pathways</h3>
+            <p>Helping people identify realistic, sustainable routes toward work — grounded in their circumstances, capability and aspirations.</p>
+          </article>
+          <article class="direction-card">
+            <h3>Vocational support</h3>
+            <p>Understanding barriers clearly, then building capability through practical, person-centred support.</p>
+          </article>
+          <article class="direction-card">
+            <h3>Employer engagement</h3>
+            <p>Connecting skills, people and opportunities — bridging the gap between readiness and work.</p>
+          </article>
+          <article class="direction-card">
+            <h3>Sustainable employment</h3>
+            <p>Focusing on outcomes that last: not just placement, but progress that holds.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CAREER TRAJECTORY -->
+    <section class="trajectory" id="trajectory" aria-label="Career trajectory">
+      <div class="trajectory__pin">
+        <p class="chapter__label trajectory__label">JOURNEY · FROM KERALA TO CANTERBURY</p>
+        <div class="trajectory__viewport">
+          <div class="trajectory__track" id="trajectoryTrack">
+            <article class="traj-stage">
+              <span class="traj-stage__year">OVER SIX YEARS</span>
+              <h3 class="traj-stage__title">NEW ZEALAND</h3>
+              <p class="traj-stage__desc">From Kerala to Canterbury — a professional journey across social services, healthcare support, aged care, and hospitality.</p>
+            </article>
+            <article class="traj-stage">
+              <span class="traj-stage__year">2020</span>
+              <h3 class="traj-stage__title">HOSPITALITY</h3>
+              <p class="traj-stage__desc">Distinction Hotel, Christchurch — kitchen operations, then front-of-house guest service under pressure.</p>
+            </article>
+            <article class="traj-stage">
+              <span class="traj-stage__year">2021 – 2023</span>
+              <h3 class="traj-stage__title">AGED CARE</h3>
+              <p class="traj-stage__desc">Caregiver &amp; Coordinator at Chatswood Retirement Village — dignity, clinical coordination, regulatory records.</p>
+            </article>
+            <article class="traj-stage">
+              <span class="traj-stage__year">2023 – 2025</span>
+              <h3 class="traj-stage__title">COMMUNITY SUPPORT</h3>
+              <p class="traj-stage__desc">IDEA Services and Te Whare Ngakau Trust — person-centred plans, whānau, clinical teams, independence.</p>
+            </article>
+            <article class="traj-stage">
+              <span class="traj-stage__year">NOV 2025</span>
+              <h3 class="traj-stage__title">CASE MANAGEMENT</h3>
+              <p class="traj-stage__desc">General Case Manager at the Ministry of Social Development — caseload, policy, Te Tiriti, and defensible decisions.</p>
+            </article>
+            <article class="traj-stage traj-stage--accent">
+              <span class="traj-stage__year">FUTURE</span>
+              <h3 class="traj-stage__title">EMPLOYMENT CASE MANAGEMENT</h3>
+              <p class="traj-stage__desc">A clear direction: employment pathways, vocational support and outcomes that endure.</p>
+            </article>
+            <article class="traj-stage">
+              <span class="traj-stage__year">LONG TERM</span>
+              <h3 class="traj-stage__title">PUBLIC-SECTOR LEADERSHIP</h3>
+              <p class="traj-stage__desc">Ambition held with care — leadership that serves people, policy and lasting impact.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CHAPTER 04 -->
+    <section class="chapter chapter-04" id="chapter-04">
+      <div class="chapter__inner">
+        <h2 class="chapter__heading chapter__heading--stacked">
+          <span class="chapter__heading-line">EXPERIENCE</span>
+          <span class="chapter__heading-line">THAT</span>
+          <span class="chapter__heading-line">SHAPES</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">PERSPECTIVE.</span>
+        </h2>
+        <p class="chapter__statement">
+          Over six years across social services, healthcare support, aged care, and hospitality in New Zealand — plus qualifications in supply chain, health and wellbeing, and commerce.
+        </p>
+
+        <div class="editorial-cards" aria-label="Thematic lens">
+          <article class="editorial-card">
+            <span class="editorial-card__num">01</span>
+            <h3>PUBLIC SERVICE</h3>
+            <p>Case management at MSD — caseloads, agencies, compliant records, and decisions made carefully against policy.</p>
+          </article>
+          <article class="editorial-card">
+            <span class="editorial-card__num">02</span>
+            <h3>COMMUNITY SUPPORT</h3>
+            <p>Higher-complexity and person-centred support with clients, whānau, clinical teams, and providers — coaching toward independence.</p>
+          </article>
+          <article class="editorial-card">
+            <span class="editorial-card__num">03</span>
+            <h3>AGED CARE</h3>
+            <p>Direct care and coordination focused on dignity and quality of life, with records held to aged care regulatory standards.</p>
+          </article>
+          <article class="editorial-card">
+            <span class="editorial-card__num">04</span>
+            <h3>HOSPITALITY</h3>
+            <p>High-volume guest service and financial transactions — composure, accuracy, and reliability under pace.</p>
+          </article>
+        </div>
+
+        <div class="roles" aria-label="Professional experience">
+          <p class="chapter__label roles__label">ROLES</p>
+
+          <article class="role-card">
+            <span class="role-card__dates">Nov 2025 – Present</span>
+            <h3 class="role-card__title">General Case Manager · Ministry of Social Development</h3>
+            <p class="role-card__body">Manage a diverse caseload and coordinate with stakeholders and agencies to move case files through to resolution. Keep accurate, compliant records; run compliance checks; and prepare defensible files for Reviews of Decision. Schedule meetings across parties, review documents carefully, and work under pressure while adapting to changing priorities. Embed Te Ao Māori principles and mātauranga Māori in casework, aligned with Te Tiriti o Waitangi obligations.</p>
+          </article>
+
+          <article class="role-card">
+            <span class="role-card__dates">May 2024 – Nov 2025</span>
+            <h3 class="role-card__title">Support Worker · Te Whare Ngakau Trust, Christchurch</h3>
+            <p class="role-card__body">Higher-complexity caseload with intensive client support needs. Assessed needs, developed person-centred support plans, and built trusted relationships with clients, whānau, clinical teams, and external providers. Kept confidential records to policy, and coached clients transitioning toward independence.</p>
+          </article>
+
+          <article class="role-card">
+            <span class="role-card__dates">Apr 2023 – Oct 2025</span>
+            <h3 class="role-card__title">Support Worker · IDEA Services, New Zealand</h3>
+            <p class="role-card__body">Assessed client needs and developed person-centred plans, including referrals to specialist services. Maintained relationships with clients, whānau, clinical teams, and providers. Kept accurate confidential records under organisational policy and privacy legislation, and supported people moving toward greater independence.</p>
+          </article>
+
+          <article class="role-card">
+            <span class="role-card__dates">2021 – 2023</span>
+            <h3 class="role-card__title">Caregiver &amp; Coordinator · Chatswood Retirement Village, Christchurch</h3>
+            <p class="role-card__body">Provided direct care and coordinated support for residents, with a focus on dignity and quality of life. Worked with clinical teams and external providers for seamless delivery, and maintained resident records to aged care regulatory standards.</p>
+          </article>
+
+          <article class="role-card">
+            <span class="role-card__dates">Sep 2020 – Aug 2021</span>
+            <h3 class="role-card__title">Front Office Guest Service Associate · Distinction Hotel, Christchurch</h3>
+            <p class="role-card__body">Managed high-volume guest enquiries and financial transactions. Processed payments, kept accurate guest records, resolved complaints, and delivered customer service in a fast-paced front-of-house environment.</p>
+          </article>
+
+          <article class="role-card">
+            <span class="role-card__dates">Jun 2020 – Aug 2020</span>
+            <h3 class="role-card__title">Kitchen Hand · Distinction Hotel, Christchurch</h3>
+            <p class="role-card__body">Supported kitchen operations, cleanliness, and efficiency standards — building reliability and work ethic in a hospitality setting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. INTERACTIVE CASE STUDIES -->
+    <section class="case-studies" id="case-studies">
+      <div class="chapter__inner">
+        <p class="chapter__label">STUDIES</p>
+        <h2 class="chapter__heading">
+          <span class="chapter__heading-line">CONCEPTUAL</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">PRACTICE.</span>
+        </h2>
+        <p class="chapter__statement case-studies__note">
+          Anonymised and conceptual — illustrating approach across public service, community support, and employment direction. Never individual client information.
+        </p>
+
+        <div class="panels">
+          <article class="panel" data-cursor="EXPLORE">
+            <span class="panel__num">01</span>
+            <h3 class="panel__title">CASE MANAGEMENT</h3>
+            <div class="panel__chain">
+              <span>Challenge</span><span class="panel__arrow">→</span>
+              <span>Assessment</span><span class="panel__arrow">→</span>
+              <span>Decision</span><span class="panel__arrow">→</span>
+              <span>Support</span>
+            </div>
+            <p class="panel__body">From presenting need to a clear, policy-aligned decision — records, Reviews of Decision readiness, and the support that follows.</p>
+          </article>
+          <article class="panel" data-cursor="EXPLORE">
+            <span class="panel__num">02</span>
+            <h3 class="panel__title">EMPLOYMENT PATHWAYS</h3>
+            <div class="panel__chain">
+              <span>Barriers</span><span class="panel__arrow">→</span>
+              <span>Capability</span><span class="panel__arrow">→</span>
+              <span>Opportunity</span><span class="panel__arrow">→</span>
+              <span>Employment</span>
+            </div>
+            <p class="panel__body">A directional model for future employment-focused practice — moving from constraint toward sustainable work.</p>
+          </article>
+          <article class="panel" data-cursor="EXPLORE">
+            <span class="panel__num">03</span>
+            <h3 class="panel__title">PUBLIC SERVICE</h3>
+            <div class="panel__chain">
+              <span>People</span><span class="panel__arrow">→</span>
+              <span>Policy</span><span class="panel__arrow">→</span>
+              <span>Impact</span>
+            </div>
+            <p class="panel__body">Public service as a chain of responsibility — Te Tiriti-aligned practice from human need to measurable difference.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CHAPTER 05 -->
+    <section class="chapter chapter-05" id="chapter-05">
+      <div class="chapter__inner">
+        <h2 class="chapter__heading">
+          <span class="chapter__heading-line">ALWAYS</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">LEARNING.</span>
+        </h2>
+
+        <div class="learning">
+          <div class="learning__item">
+            <span class="learning__cat">SUPPLY CHAIN</span>
+            <div class="learning__entries">
+              <div class="learning__entry">
+                <h3>Graduate Diploma in Supply Chain &amp; Logistics (Level 7)</h3>
+                <p class="learning__meta">Ara Institute of Canterbury · 2020</p>
+                <p>Planning, coordination, and systems thinking applied across later roles.</p>
+              </div>
+            </div>
+          </div>
+          <div class="learning__item">
+            <span class="learning__cat">HEALTH &amp; WELLBEING</span>
+            <div class="learning__entries">
+              <div class="learning__entry">
+                <h3>Certificate in Health and Wellbeing (Level 4)</h3>
+                <p class="learning__meta">New Zealand Tertiary College · 2024</p>
+                <p>Supports frontline care and community support practice.</p>
+              </div>
+            </div>
+          </div>
+          <div class="learning__item">
+            <span class="learning__cat">TE REO &amp; TIKANGA</span>
+            <div class="learning__entries">
+              <div class="learning__entry">
+                <h3>Certificate in Māori Protocol and Language for Home &amp; Community (Level 4)</h3>
+                <p class="learning__meta">Te Wānanga o Raukawa (Poupou Huia Te Reo 1) · Currently enrolled</p>
+                <p>Building te reo Māori and tikanga knowledge for culturally grounded practice.</p>
+              </div>
+            </div>
+          </div>
+          <div class="learning__item">
+            <span class="learning__cat">COMMERCE</span>
+            <div class="learning__entries">
+              <div class="learning__entry">
+                <h3>Bachelor of Commerce — Computer Science &amp; Co-operation</h3>
+                <p class="learning__meta">Mahatma Gandhi University, India · 2016</p>
+                <p>Foundational commerce and computing study before moving to Aotearoa.</p>
+              </div>
+            </div>
+          </div>
+          <div class="learning__item">
+            <span class="learning__cat">CERTIFICATIONS &amp; RECOGNITION</span>
+            <div class="learning__entries">
+              <ul class="learning__list">
+                <li>COVID-19 Response Recognition Award — New Zealand Government</li>
+                <li>Full New Zealand Driver’s Licence</li>
+                <li>First Aid Certificate (expired March 2026 — available to renew)</li>
+                <li>Actively developing te reo Māori and tikanga knowledge in line with Te Tiriti o Waitangi obligations</li>
+              </ul>
+            </div>
+          </div>
+          <div class="learning__item">
+            <span class="learning__cat">LANGUAGES</span>
+            <div class="learning__entries">
+              <ul class="learning__list learning__list--langs" aria-label="Languages spoken">
+                <li>Malayalam</li>
+                <li>Hindi</li>
+                <li>Tamil</li>
+                <li>English</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. CINEMATIC STATEMENT -->
+    <section class="statement" id="statement" aria-label="Cinematic statement">
+      <div class="statement__inner">
+        <p class="statement__line" data-line="1">A CAREER IS NOT A TITLE.</p>
+        <p class="statement__line" data-line="2">IT’S A DIRECTION.</p>
+        <p class="statement__line statement__line--final" data-line="3">
+          <span>PEOPLE.</span>
+          <span>EMPLOYMENT.</span>
+          <span>IMPACT.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 13. FINAL CONTACT -->
+    <section class="contact" id="contact">
+      <div class="chapter__inner">
+        <h2 class="chapter__heading">
+          <span class="chapter__heading-line">LET’S</span>
+          <span class="chapter__heading-line chapter__heading-line--serif">CONNECT.</span>
+        </h2>
+        <p class="contact__intro">
+          Based in New Zealand. Open to conversations about public service, employment support, career development, policy, community, and connecting across cultures.
+        </p>
+        <div class="contact__actions">
+          <a href="mailto:akashthattanparambil@gmail.com" class="btn" data-cursor="OPEN">EMAIL ↗</a>
+          <span class="btn btn--muted" aria-disabled="true" title="CV not published on the live site">CV ON REQUEST</span>
+        </div>
+        <footer class="site-footer">
+          <p class="site-footer__name">AKASH THATTANPARAMBIL RAJU</p>
+          <p class="site-footer__role">CASE MANAGER · MINISTRY OF SOCIAL DEVELOPMENT</p>
+          <p class="site-footer__future">FUTURE FOCUS · EMPLOYMENT CASE MANAGEMENT</p>
+          <p class="site-footer__theme">From Kerala to Canterbury</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11. ASK AKASH -->
+  <div class="ask" id="ask">
+    <button class="ask__trigger" id="askTrigger" data-cursor="OPEN" aria-expanded="false" aria-controls="askPanel">
+      <span class="ask__spark">✦</span> ASK AKASH
+    </button>
+    <div class="ask__panel" id="askPanel" hidden>
+      <p class="ask__prompt">What would you like to explore?</p>
+      <div class="ask__buttons">
+        <button type="button" data-target="#chapter-01">CURRENT ROLE</button>
+        <button type="button" data-target="#chapter-04">EXPERIENCE</button>
+        <button type="button" data-target="#chapter-03">CAREER DIRECTION</button>
+        <button type="button" data-target="#chapter-05">LEARNING</button>
+        <button type="button" data-target="#chapter-03">FUTURE</button>
+        <button type="button" data-target="#contact">CONTACT</button>
+      </div>
+      <button class="ask__close" id="askClose" aria-label="Close">×</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
