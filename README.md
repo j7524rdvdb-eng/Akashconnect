@@ -4,6 +4,6 @@
 
 Visual language from Instagram reel `DTklTOtiGN0`: warm dusk/coral city world, black letterbox, vertical split (immersive world + dense info rail), compact geometric sans, hard editorial cuts, 200–400ms ease-out.
 
-**Christchurch is THE CITY** — Port Hills, Cathedral Square, Bridge of Remembrance, Avon/Te Pae, Hagley, New Brighton, Cardboard Cathedral, Riverside Market.
+**Christchurch is THE CITY hub.** Real journey stops: Ara logistics → Distinction Hotel → Nelson caregiver (flew) → Christchurch caregiver → IDEA Services → Te Whare Ngakau Trust → Kaikōura (now) → Work and Income Case Manager Christchurch (soon) → Employment Case Manager / leadership (ambition, not current title).
 
-Role: Case Manager / General Case Manager at MSD (since Nov 2025). Private enquiry via FormSubmit (email not public).
+Private enquiry via FormSubmit (email not public).

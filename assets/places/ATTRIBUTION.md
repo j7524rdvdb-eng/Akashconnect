@@ -16,3 +16,8 @@ All photographs below are from Wikimedia Commons (used under their respective Cr
 | botanic-gardens.jpg | Meandering_path_near_Woodland_Garden_in_Christchurch_Botanic_Gardens.jpg | Christchurch Botanic Gardens |
 
 See each Commons file page for photographer credit and licence text. Images resized via Commons Special:FilePath width=1600 for web use.
+
+| nelson-city.jpg | Nelson,_New_Zealand.jpg | Nelson |
+| kaikoura-coast.jpg | Kaikoura_Peninsula.jpg | Kaikōura Peninsula |
+
+Nelson and Kaikōura are real stops on Akash’s journey (not Christchurch tram landmarks). Unsplash not used for these two; Wikimedia Commons as above.
