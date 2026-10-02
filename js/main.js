@@ -1,55 +1,24 @@
 (function () {
-  var menuBtn = document.getElementById("menuBtn");
-  var mobileNav = document.getElementById("mobileNav");
-  if (menuBtn && mobileNav) {
-    menuBtn.addEventListener("click", function () {
-      var open = mobileNav.hasAttribute("hidden");
-      if (open) {
-        mobileNav.removeAttribute("hidden");
-        menuBtn.setAttribute("aria-expanded", "true");
-        menuBtn.setAttribute("aria-label", "Close menu");
-      } else {
-        mobileNav.setAttribute("hidden", "");
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open menu");
-      }
-    });
-    mobileNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        mobileNav.setAttribute("hidden", "");
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.setAttribute("aria-label", "Open menu");
+  // Active page is marked in HTML via aria-current.
+  // Soft fade-in for cards when supported.
+  if (!("IntersectionObserver" in window)) return;
+  var nodes = document.querySelectorAll(".card, .job, .award-card, .stat, .timeline li");
+  if (!nodes.length) return;
+  nodes.forEach(function (el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(10px)";
+    el.style.transition = "opacity 0.45s ease, transform 0.45s ease";
+  });
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "none";
+        io.unobserve(entry.target);
       });
-    });
-  }
-
-  var form = document.getElementById("enquiryForm");
-  var status = document.getElementById("formStatus");
-  var submitBtn = document.getElementById("submitBtn");
-
-  if (form) {
-    // Destination kept out of markup
-    var dest = atob("YWthc2h0aGF0dGFucGFyYW1iaWxAZ21haWwuY29t");
-    form.setAttribute("action", "https://formsubmit.co/" + dest);
-  }
-
-  function showStatus(kind, text) {
-    if (!status) return;
-    status.hidden = false;
-    status.className = "form-status " + kind;
-    status.textContent = text;
-  }
-
-  if (status && /(?:\?|&)sent=1(?:&|$)/.test(window.location.search)) {
-    showStatus("ok", "Thank you. Your enquiry has been sent. I will reply to the work email you provided.");
-  }
-
-  if (form) {
-    form.addEventListener("submit", function () {
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
-      }
-    });
-  }
+    },
+    { threshold: 0.12 }
+  );
+  nodes.forEach(function (el) { io.observe(el); });
 })();

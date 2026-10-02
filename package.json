@@ -1,8 +1,8 @@
 {
   "name": "akashconnect",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
-  "description": "Simple personal website for Akash Thattanparambil Raju",
+  "description": "Multi-page portfolio for Akash Thattanparambil Raju",
   "scripts": {
     "start": "python3 -m http.server 5173",
     "preview": "python3 -m http.server 5173"
