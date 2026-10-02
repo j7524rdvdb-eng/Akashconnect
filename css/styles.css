@@ -425,38 +425,6 @@ button {
   opacity: 0;
 }
 
-.hero__statements {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
-}
-
-.hero__line {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-  gap: 0.65rem 1.1rem;
-  opacity: 0;
-  transform: translateY(24px);
-}
-
-.hero__display {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.75rem, 5.5vw, 4.25rem);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-}
-
-.hero__display--serif {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-style: italic;
-  color: var(--accent);
-}
-
 .hero__sub {
   max-width: 34rem;
   margin: 0 auto;
@@ -1415,11 +1383,6 @@ button {
 }
 
 @media (max-width: 600px) {
-  .hero__line {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
   .contact__actions {
     flex-direction: column;
     align-items: stretch;

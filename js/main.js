@@ -130,7 +130,7 @@
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
     console.warn("GSAP not loaded — static layout only.");
     // Reveal hero without animation
-    document.querySelectorAll(".hero__eyebrow, .hero__name, .hero__fullname, .hero__line, .hero__sub, .hero__scroll").forEach((el) => {
+    document.querySelectorAll(".hero__eyebrow, .hero__name, .hero__fullname, .hero__sub, .hero__scroll").forEach((el) => {
       el.style.opacity = "1";
       el.style.transform = "none";
     });
@@ -149,7 +149,6 @@
         ".hero__eyebrow",
         ".hero__name",
         ".hero__fullname",
-        ".hero__line",
         ".hero__sub",
         ".hero__scroll",
         ".climax__word",
@@ -170,8 +169,6 @@
     .to(".hero__eyebrow", { opacity: 1, duration: 1.2, delay: 0.3 })
     .to(".hero__name", { opacity: 1, duration: 1.4 }, "-=0.6")
     .to(".hero__fullname", { opacity: 1, duration: 1.0 }, "-=0.9")
-    .to(".hero__line--1", { opacity: 1, y: 0, duration: 1.2 }, "-=0.4")
-    .to(".hero__line--2", { opacity: 1, y: 0, duration: 1.2 }, "+=0.55")
     .to(".hero__sub", { opacity: 1, duration: 1.1 }, "+=0.35")
     .to(".hero__scroll", { opacity: 1, duration: 0.9 }, "-=0.4");
 
