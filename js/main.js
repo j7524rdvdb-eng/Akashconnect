@@ -1,10 +1,10 @@
-/* Christchurch tramway ride — scroll = travel, stops = CV beats */
+/* Spectator mode — Christchurch tramway · scroll = ride, levels = CV beats */
 (function () {
   "use strict";
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* FormSubmit — destination not in markup */
+  /* FormSubmit — destination not in markup (no public Gmail) */
   const form = document.getElementById("enquiryForm");
   if (form) {
     form.action = atob("aHR0cHM6Ly9mb3Jtc3VibWl0LmNvL2FrYXNodGhhdHRhbnBhcmFtYmlsQGdtYWlsLmNvbQ==");
@@ -32,7 +32,7 @@
     });
   }
 
-  /* Boarding world — hard cuts through landmarks while waiting to ride */
+  /* Boarding world — hard cuts through landmarks */
   const shots = Array.from(document.querySelectorAll(".world-shot"));
   const placeLabel = document.getElementById("placeLabel");
   let shotIdx = 0;
@@ -62,7 +62,6 @@
   showShot(0);
   startAutoShots();
 
-  /* Jump boarding world to a landmark when a stop requests it */
   function jumpToShot(index) {
     if (typeof index !== "number" || index < 0) return;
     stopAutoShots();
@@ -85,28 +84,47 @@
     );
   }
 
-  /* Ride progress + active stop */
-  const hud = document.getElementById("tramHud");
+  /* Spectator HUD + minimap */
+  const hud = document.getElementById("gameHud");
+  const hudLevel = document.getElementById("hudLevel");
   const hudStop = document.getElementById("hudStop");
   const hudProgress = document.getElementById("hudProgress");
+  const hudPct = document.getElementById("hudPct");
   const stops = Array.from(document.querySelectorAll(".stop[data-stop]"));
+  const minimapNodes = Array.from(document.querySelectorAll(".minimap__node"));
 
   function updateRide() {
     const doc = document.documentElement;
     const max = Math.max(1, doc.scrollHeight - window.innerHeight);
     const p = Math.min(1, Math.max(0, window.scrollY / max));
+    const pct = Math.round(p * 100);
     if (hudProgress) hudProgress.style.width = `${(p * 100).toFixed(1)}%`;
-    if (hud) hud.classList.toggle("is-on", window.scrollY > 40);
+    if (hudPct) hudPct.textContent = `${pct}%`;
+    if (hud) hud.classList.toggle("is-on", window.scrollY > 24);
 
     let active = stops[0];
-    const mid = window.innerHeight * 0.42;
-    for (const s of stops) {
+    let activeIdx = 0;
+    const mid = window.innerHeight * 0.4;
+    stops.forEach((s, i) => {
       const r = s.getBoundingClientRect();
-      if (r.top <= mid && r.bottom > mid) active = s;
+      if (r.top <= mid && r.bottom > mid) {
+        active = s;
+        activeIdx = i;
+      }
+    });
+
+    if (active) {
+      const lvl = active.getAttribute("data-level") || "00";
+      const title = active.getAttribute("data-title") || active.getAttribute("data-stop") || "";
+      if (hudLevel) hudLevel.textContent = `LVL ${lvl}`;
+      if (hudStop) hudStop.textContent = title;
     }
-    if (active && hudStop) {
-      hudStop.textContent = active.getAttribute("data-stop") || "";
-    }
+
+    minimapNodes.forEach((node, i) => {
+      node.classList.toggle("is-active", i === activeIdx);
+      node.classList.toggle("is-cleared", i < activeIdx);
+    });
+
     if (active && active.hasAttribute("data-shot")) {
       const idx = Number(active.getAttribute("data-shot"));
       if (!Number.isNaN(idx)) jumpToShot(idx);
@@ -114,7 +132,7 @@
       startAutoShots();
     }
 
-    document.querySelectorAll(".destination").forEach((el) => {
+    document.querySelectorAll(".level").forEach((el) => {
       const r = el.getBoundingClientRect();
       const inView = r.top < window.innerHeight * 0.75 && r.bottom > window.innerHeight * 0.2;
       el.classList.toggle("is-in-view", inView);
@@ -136,7 +154,7 @@
   );
   updateRide();
 
-  /* Fast card reveals */
+  /* Mission / skill card reveals */
   const cards = document.querySelectorAll("[data-reveal]");
   if (cards.length) {
     if (reduced || !("IntersectionObserver" in window)) {
@@ -151,7 +169,7 @@
             }
           });
         },
-        { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
+        { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
       );
       cards.forEach((c) => io.observe(c));
     }
