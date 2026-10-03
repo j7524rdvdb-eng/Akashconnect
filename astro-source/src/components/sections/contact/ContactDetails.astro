@@ -2,11 +2,15 @@
 import Container from "../../elements/Container.astro"
 import ContactItem from "./ContactItem.astro"
 import Text from "../../elements/Text.astro"
+import Link from "../../elements/Link.astro"
 ---
 <Container variant={'md'} class="gap-10">
     <div class="flex lg:flex-row flex-col gap-8 text-base-900">
         <ContactItem title="Location" contact="Kaikōura, New Zealand · Case Manager at Work and Income" />
         <ContactItem title="Availability" contact="Open to employment-focused and leadership conversations" />
+    </div>
+    <div>
+        <Link variant={'button'} href="https://www.linkedin.com/in/akash-thattanparambil-raju" newWindow>LinkedIn</Link>
     </div>
 
     <div class="border-3 border-base-900 p-6 flex flex-col gap-4 text-base-900">
